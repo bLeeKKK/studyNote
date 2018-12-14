@@ -27,11 +27,26 @@ http.createServer(function(req,res){
     }else{//接口 
         if(pathName == '/getStudentspage'){
             const { queryStudentByPage } = require('./services/StudentsServices');
+
             queryStudentByPage( parseInt(params.offset) , parseInt(params.size) ,(obj)=>{
                 res.writeHead(200,{'Content-type':'application/json; charset=utf8'});
                 res.write(JSON.stringify({data:obj,page:9}));
                 res.end();
             })
+
+        }else if(pathName == '/getStudentspage'){
+
+        }else{
+            function upLoad(req,response){
+                console.log('============')
+            
+                req.on('data',(data)=>{
+                    let fis = fs.createWriteStream(data);
+                    fis.write('./file/abc.jpg')
+                    fis.end();
+                    req.end();
+                })
+            }
         }
     }
 
