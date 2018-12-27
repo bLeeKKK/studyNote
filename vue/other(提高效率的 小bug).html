@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/vue/2.5.21/vue.js"></script>
+</head>
+<body>
+    <!-- nextTick -->
+    <div id="app">
+        <div v-if="show" id="div">
+            这是一段文字
+        </div>
+        <button @click="showFun">获取dom</button>
+    </div>
+    <script>
+        const em = new Vue({
+            el: '#app',
+            data(){
+                return{
+                    msg: 'hellow world',
+                    show: false
+                }
+            },
+            methods:{
+                add(){
+                    this.msg+=1
+                },
+                showFun(){
+                    this.show = true;
+                    //不行 存在虚拟dom为了提高运行效率
+                    let text = document.getElementById('div').innerHTML;
+                    console.log(text)
+
+                    //行 this.$nextTick 进行下一个时间循环
+                    // this.$nextTick(()=>{
+                    //     let text = document.getElementById('div').innerHTML;
+                    //     console.log(text)
+                    // })   
+                }
+            },
+        })
+
+        
+    </script>
+</body>
+</html>

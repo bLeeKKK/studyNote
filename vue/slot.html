@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/vue/2.5.21/vue.js"></script>
+</head>
+<body>
+    <!-- 插槽 -->
+    <div id="app">
+        <son-com>
+            <template   slot="slotName"
+                        scope="props">
+                <p @click="add">
+                    {{msg}}<br/>
+                    {{props.msg}}
+                </p>
+            </template>
+            
+            <p slot="slotName1">插入2</p>
+        </son-com>
+    </div>
+    <script>
+        Vue.component('sonCom',{
+            template: `<div>
+                            <slot   name="slotName" 
+                                    :msg="sonMsg"
+                                    @click="add"></slot>
+                            <slot name="slotName1"></slot>
+                        </div>`,
+            data(){
+                return{
+                    sonMsg: 'hellow ，I am sonMsg'
+                }
+            },
+            methods:{
+                add(){
+                    console.log(222222)
+                }
+            }
+        })
+        const em = new Vue({
+            el: '#app',
+            data(){
+                return{
+                    msg: 'hellow world'
+                }
+            },
+            methods:{
+                add(){
+                    this.msg+=1
+                }
+            }
+        })
+    </script>
+</body>
+</html>

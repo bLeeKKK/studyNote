@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/vue/2.5.21/vue.js"></script>
+</head>
+<body>
+    <!-- 自定义指令 -->
+    <div id="app">
+        <div v-comeon>hellow world</div>
+        <input type="text" v-focus>
+    </div>
+    <script>
+        Vue.directive('comeon',{
+            bind(el,binding){
+                console.log(el,binding)
+            },
+            inserted(){
+
+            },
+            update(){
+
+            },
+            componentUpdated(){
+
+            },
+            unbind(){
+
+            },
+        })
+        Vue.directive('focus',{
+            inserted(el,binding,vnode,oldVnode){
+                // el, dom元素
+                // binding, 绑定对象{name: '名称'，values："传入的value"，oldValue，。。。}
+                // vnode, 虚拟dom
+                // oldVnode, 上一个虚拟dom
+                console.log(el,binding,vnode)
+                el.focus()
+            }
+        })
+        const em = new Vue({
+            el: '#app',
+            data(){
+                return{
+                    msg: 'hellow world',
+                    show: false
+                }
+            },
+            methods:{
+                add(){
+                    this.msg+=1
+                },
+            },
+        })
+
+        
+    </script>
+</body>
+</html>
