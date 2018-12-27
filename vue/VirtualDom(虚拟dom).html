@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/vue/2.5.21/vue.js"></script>
+</head>
+<body>
+    <!-- 插槽 -->
+    <div id="app">
+        <baidu dodo="sasa"></baidu>
+    </div>
+    <script>
+        Vue.component('sonCom',{
+            template: `<div>
+                            <slot   name="slotName" 
+                                    :msg="sonMsg"
+                                    @click="add"></slot>
+                            <slot name="slotName1"></slot>
+                        </div>`,
+            data(){
+                return{
+                    sonMsg: 'hellow ，I am sonMsg'
+                }
+            },
+            methods:{
+                add(){
+                    console.log(222222)
+                }
+            }
+        })
+
+        Vue.component('baidu',{
+            functional: true, // 函数化组件
+            render: function( createElement,context ){//要将 functional 设置为true，context才有值
+                console.log(context)
+                return createElement('h1',[
+                    createElement('a',{
+                        domProps: {
+                            href: '#'
+                        },
+                        class:{
+                            foo: true,
+                            far: false,
+                        },
+                        attrs: {
+                            id: 'foo',
+                            gogo: 'toto'
+                        },
+                        props:{
+                            myProps: 'bar'
+                        },
+                        on:{
+                            click: function(){
+                                console.log('gogoaa')
+                            }
+                        }
+                    },['百度1',createElement('a',{
+                        domProps: {
+                            href: '#'
+                        },
+                    },['百度2'])])
+                ])
+
+            }
+        })
+        const em = new Vue({
+            el: '#app',
+            data(){
+                return{
+                    msg: 'hellow world'
+                }
+            },
+            methods:{
+                add(){
+                    this.msg+=1
+                }
+            }
+        })
+    </script>
+</body>
+</html>
