@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/vue/2.5.21/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <span>
+            {{msg}}
+        </span><br/>
+        <input  @keyup.13="fun" v-model="msg"/>
+        <input name='test' v-model="val" value='99'/>
+        <input name='test' v-model="val" value='88'/>
+        <lb-header msg='from baba' v-model="sonVal" @input="function(str){sonVal = str}"></lb-header>
+        {{sonVal}}
+
+        {{val}}
+        {{value}}
+    </div>
+
+    <script>
+        Vue.component('lb-header',{
+            props: {
+                msg:{
+                    type: String,
+                    default: 'hellowLB'
+                },
+                value:{
+                    type: String,
+                    default: 'hellowLB'
+                },
+            },
+            template: `<div><h1>{{msg}}</h1>
+                        <input @input="cgFth" :value="value"></div>`,
+            data() {
+                return {
+                    val: null,
+                }
+            },
+            methods:{
+                cgFth(e){
+                    console.log(e)
+                    this.$emit('input','来自子级')
+                }
+            }
+        })
+        const app = new Vue({
+            el: '#app',
+            data() {
+                return {
+                    msg: 'hellow world',
+                    val: null,
+                    value: 999,
+                    sonVal: '来自父级',
+                }
+            },
+            methods: {
+                fun(){
+                    console.log(13)
+                },
+                getData(str){
+                    this.sonVal = str;
+                    console.log(str)                    
+                }
+            },
+            created() {
+                // console.log(11)
+            },
+        })
+    </script>
+</body>
+</html>
