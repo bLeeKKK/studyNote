@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        ul{
+            display: flex;
+            border: 1px solid #000;
+            flex-wrap: wrap;
+            /* justify-content: space-around; */
+            /* height: 500px; */
+            /* align-items: center; */
+            /* align-content: center; */
+            /* flex-direction: column; */
+        }
+        li{
+            list-style: none;
+            /* width: 100px; */
+            /* height: 100px; */
+            background-color: red;
+            /* flex-grow: 1 */
+            flex: 0 0 25%;
+            border: 5px solid transparent;
+            box-sizing: border-box;
+            background-clip: content-box;
+            /* margin: 10px; */
+        }
+        /* li:nth-of-type(3){
+            flex-grow: 0
+        } */
+    </style>
+</head>
+<body>
+    <ul class="warper">
+       <li>1</li>
+       <li>2</li>
+       <li>3</li>
+       <li>4</li>
+       <li>5</li>
+       <li>6</li>
+       <li>7</li>
+       <li>8</li>
+       <li>9</li>
+       <li>10</li>
+       <li>11</li>
+    </ul>
+    <script>
+        // 说明：
+        // .box {
+        //     flex: 4 3 100px;
+        // }
+        // .box {
+        //     flex-grow: 4;
+        //     flex-shrink: 3;
+        //     flex-basis: 100px;
+        // }
+
+        // 以上两个style 表示同一个意思
+        // flex-grow 一行剩下的 占用比例
+        // flex-shrink 一行多余的 占用比例
+        // flex-basis 一行中每一项的的宽度
+
+        // 以上 li 标签
+        // 解决原先 justify-content: space-around; 换行后剩余项目居中显示 不好看
+    </script>
+</body>
+</html>
