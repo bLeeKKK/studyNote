@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* placeholder 选择器 就能改变一个input中的placeholder颜色 */
+        input::placeholder{
+            color: green
+        }
+
+        /* 选中的颜色 */
+        .div1::selection{
+            color: #ffffff;
+            background-color: blueviolet;
+            text-shadow: 3px 5px black;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" name="" placeholder="请输入XXX" id="">
+
+    <div class="div1">
+        div1
+    </div>
+</body>
+</html>

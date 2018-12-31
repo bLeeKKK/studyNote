@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* 兄弟选择器 */
+        /* E + F */
+        /* 下一个 满足条件的兄弟元素节点 */
+        /* div + p{
+            background-color: brown;
+        } */
+
+         /* E ~ F */
+         /* 下几个 满足条件的兄弟元素节点 */
+        /* div ~ p{
+            background-color: brown;
+        } */
+
+        /* 属性选择器 */
+        [data="a"]{
+
+        }
+        /* 属性选择器属性含有 a 可用空格隔开 */
+        [data~="a"]{ 
+ 
+        }
+        /* 选择已  a或者a- 开头 */
+        [data|="a"]{ 
+ 
+        }
+        /* 已a开头 */
+        [data^="a"]{ 
+ 
+        }
+        /* 已a结尾 */
+        [data$="a"]{ 
+ 
+        }
+        /* 只要存在a */
+        [data*="a"]{ 
+ 
+        }
+    </style>
+</head>
+<body>
+    <div>divBox</div>
+    <span>span</span>
+    <p>p1</p>
+    <p>p2</p>
+    <p>p3</p>
+
+    <div data="a"></div>
+
+</body>
+</html>
