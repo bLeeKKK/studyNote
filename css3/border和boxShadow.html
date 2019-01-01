@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* border */
+        /* 基本 简单写法 */
+        .div1{
+            width: 100px;
+            height: 100px;
+            border: 1px solid #000000;
+
+            border-radius: 10px 20px 30px 40px / 10px 20px 30px 40px;
+        }
+        /* 阴影 */
+        .div2{
+            width: 100px;
+            height: 100px;
+            border: 1px solid #000000;
+
+            box-shadow: inset 0px 0px 0px 0px rgb(255, 123, 0);
+            /* 值的含义：内部还是外部阴影(默认为外部) x偏移 y偏移 模糊值(高斯模糊) 放大值*/
+        }
+
+        /* test 三个例子 */
+        body{
+            background-color: #000000;
+        }
+        .div3{
+            margin-top: 20px;
+            width: 300px;
+            height: 300px;
+            /* border: 1px solid #000000; */
+            border-radius: 50%;
+
+            box-shadow: inset 0px 0 50px #fff,
+                        inset 10px 0 80px #f0f,
+                        inset -10px 0 80px #0ff,
+                        inset 10px 0 250px #f0f,
+                        inset -10px 0 250px #0ff,
+                        0 0 50px #fff,
+                        -10px 0 80px #f0f,
+                        10px 0 80px #0ff;
+        }
+        .div4{
+            margin-top: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%; 
+            background-color: #fff;
+
+            box-shadow: 0 0 100px 50px #fff,
+                        0 0 250px 125px #ff0;
+
+            margin: auto;
+        }
+        .div5{
+            height: 100px;
+            width: 100px;
+            background-color: #fff;
+            box-shadow: 0 1px 2px rgb(250, 250, 250);
+            transition: all .6s;
+        }
+        .div5:hover{
+            height: 200px;
+            width: 200px;
+            box-shadow: 0 10px 20px rgb(250, 250, 250)
+        }
+    </style>
+</head>
+<body>
+    <div class="div1"></div>
+
+    <div class="div2"></div>
+
+    <div class="div3"></div>
+
+    <div class="div4"></div>
+
+    <div class="div5"></div>
+</body>
+</html>

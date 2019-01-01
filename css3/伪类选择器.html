@@ -6,17 +6,104 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
+        /* 伪类选择器是被选择元素的一种状态 */
+
         /* placeholder 选择器 就能改变一个input中的placeholder颜色 */
         input::placeholder{
             color: green
         }
 
-        /* 选中的颜色 */
+        /* 鼠标拖动选中 颜色时候文章的状态 */
         .div1::selection{
             color: #ffffff;
             background-color: blueviolet;
             text-shadow: 3px 5px black;
             font-size: 30px;
+        }
+
+        /* "除了" 选择器 :not(选择器) */
+        .div2 p:not(:last-of-type){
+            padding: 10px;
+            border-bottom: 1px solid #000000;
+        }
+
+        /* 根标签选择器 */
+        :root{
+            /* background-color: crimson; */
+        }
+
+        /* 配合<a>标签 展示效果 */
+        div3 div:target{
+            border: 1px solid red;
+        }
+
+        /* 孩子元素 */
+        /* 第一个元素 */
+        .div4 p:first-child{
+            background-color: cornflowerblue;
+        }
+        /* 最后一个元素 */
+        .div4 p:last-child{
+            background-color: rgb(28, 42, 68);
+        }
+        /* 独生子 */
+        .div4 span:only-child{
+            background-color: rgb(110, 172, 141);
+        }
+        /* 固定，某几个选中 n表示自然数（0,1,2......） add奇数 even偶数 */
+        .div4 p:nth-child(2n+1){
+            background-color: rgb(110, 172, 141);
+        }
+        /* 和上述查询方式倒过来 */
+        .div4 p:nth-last-child(1){
+            background-color: rgb(110, 172, 141);
+        }
+        /* 以上所有方法都需要考虑其他子元素的影响 */
+        /* 以下只考虑某一类元素 */
+        /* 同一类第一个 */
+        .div4 p:first-of-type{
+
+        }
+        /* 同一类最后一个 */
+        .div4 p:last-of-type{
+
+        }
+        /* 某一类只存在一个 */
+        .div4 p:only-of-type{
+
+        }
+        /* 同类型第几个 */
+        .div4 p:nth-of-type(1){
+
+        }
+        /* 反过来查 */
+        .div4 p:nth-last-of-type(1){
+
+        }
+
+        /* 选中空的节点 */
+        .div5 p:empty{
+            height: 100px;
+            width: 100px;
+            background-color: chartreuse;
+        }
+
+        /* 选中时的属性 */
+        .div6 input:checked{
+            height: 100px;
+            width: 100px;
+        }
+
+        /* input能用的和不能用的 */
+        .div7 input:disabled{
+            background-color: rgb(94, 46, 12);
+        }
+        .div7 input:enabled{
+            background-color: rgb(255, 106, 0);
+        }
+        /* input只读 */
+        .div8 input:read-only{
+            background-color: rgb(29, 180, 12);
         }
     </style>
 </head>
@@ -25,6 +112,53 @@
 
     <div class="div1">
         div1
+    </div>
+
+    <div class="div2">
+        <p class="class">1</p>
+        <p>2</p>
+        <p>3</p>
+    </div>
+
+    <div class="div3">
+        <a href="#box1">abox1</a>
+        <a href="#box2">abox2</a>
+        <div id="box1">box1</div>
+        <div id="box2">box2</div>
+    </div>
+
+    <div class="div4">
+        <p>1</p>
+        <div>
+            <p>2</p>
+            <p>3</p>
+            <p>4</p>
+        </div>
+        <p>
+            5
+            <span>6</span>
+        </p>
+    </div>
+    
+    <div class="div5">
+        <p></p>
+        <p>1</p>
+        <p>2</p>
+    </div>
+
+    <div class="div6">
+        <input type="checkbox" name="" id="">
+        <input type="checkbox" name="" id="">
+    </div>
+
+    <div class="div7">
+        <input type="text" disabled name="" id="">
+        <input type="text" name="" id="">
+    </div>
+
+    <div class="div8">
+        <input type="text" readonly value="啦啦啦啦啦" name="" id="">
+        <input type="text" name="" id="">
     </div>
 </body>
 </html>
