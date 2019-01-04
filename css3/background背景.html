@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .div1{
+            height: 200px;
+            width: 200px;
+
+            /* 展示多张图片 */
+            /* background-image: url(./img1.jpg),url(./img2.png);
+            background-size:  100px 200px,100px 200px;
+            background-repeat: no-repeat;
+            background-position: 0 0,100px 0; */
+
+            background-image: url(./img1.jpg);
+            /* 背景图片开始位置 content-box，padding-box(默认值)，border-box */
+            background-origin: content-box;
+            /* 从哪里开始剪切背景图片 content-box，padding-box，border-box(默认值)，text */
+            background-clip: content-box; 
+
+            /* 文字背景 这两配合使用 */
+            background-clip: text;   
+            -webkit-text-fill-color: transparent;    
+
+            /* 背景图排列方式 repeat,no-repeat,repeat-x,repeat-y,space,round */
+            background-repeat: repeat;                                     
+        }
+
+        .div2{
+            height: 200px;
+            width: 200px;
+            border: 1px solid red;
+            overflow: scroll;
+
+            background-size: 50px;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-image: url(./img2.png);
+
+            /* 背景图相对定位方式 scroll（默认），local（相当于absolute一样的定位），fixed（相对于可视区定位）  */
+            background-attachment: scroll;
+        }
+
+        .div3{
+            height: 200px;
+            width: 200px;
+            border: 1px solid red;
+
+            background-image: url(./img2.png); 
+            /* cover(填充满 可能溢出) contain(显示完整图片) */
+            background-size: cover;
+        }
+
+        .div4{
+            height: 200px;
+            width: 200px;
+            color: hsl(210, 52%, 76%);
+
+            /* 渐变色 */
+            /* 直线 */
+            /* background-image: linear-gradient(to right, red 20px,blue); */
+            /* 径向 circle(圆)（其他值：ellipse(椭圆)） 然后放射半径 [closest-corner 译：最近的角,closest-side 译：最近的边, farthest-corner, farthest-side]  */
+            background-image: radial-gradient(ellipse closest-corner at 50px 50px, red 20px,blue)
+        }
+
+        .div5{
+            height: 200px;
+            width: 200px;
+            border: 2px;
+            border-style: solid;
+
+            color: blue;
+
+            /* 中转颜色 中转了color的颜色 默认就是 */
+            border-color: currentColor;
+        }
+    </style>
+</head>
+<body>
+    <div class="div1"></div>
+
+    <div class="div2">
+            、开辟单变量地址空间
+
+            new int;  //开辟一个存放数组的存储空间,返回一个指向该存储空间的地址.int *a = new int 即为将一个int类型的地址赋值给整型指针a. 2)int *a = new int(5) 作用同上,但是同时将整数赋值为5。
+            
+            2、开辟数组空间
+            
+            要访问new所开辟的结构体空间,无法直接通过变量名进行，只能通过赋值的指针进行访问。用new可以动态开辟,撤销地址空间。在编程序时，若用完一个变量，下次需要再用，可以在每次开始使用时开辟一个空间，在用完后撤销它。
+            
+            、开辟单变量地址空间
+
+            new int;  //开辟一个存放数组的存储空间,返回一个指向该存储空间的地址.int *a = new int 即为将一个int类型的地址赋值给整型指针a. 2)int *a = new int(5) 作用同上,但是同时将整数赋值为5。
+
+    </div>
+
+    <div class="div3"></div>
+
+    <div class="div4"></div>
+
+    <div class="div5"></div>
+</body>
+</html>

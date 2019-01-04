@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: #000;
+        }
+        .div1{
+            height: 100px;
+            width: 100px;
+            border: 100px solid #000;
+
+            border-color: pink;
+            border-image-source: url(./img.png);
+            /* 4条线切成8个区域 （其实单位还是px，但是不能加上px的单位）*/
+            border-image-slice: 100 100 100 100; 
+            /* 拉伸方式 stretch，repeat，round，space */
+            /* 最多填两个 */
+            border-image-repeat: repeat stretch;
+            /* 向外延伸（不常使用） */
+            border-image-outset: 50px;
+            /* slice切出来，每一块所占的宽度 */
+            border-image-width: 50px;
+
+            /* 合并写法 */
+            /* border-image: url(./img.png) 100 fill repeat; */
+        }
+    </style>
+</head>
+<body>
+    <div class="div1"></div>
+</body>
+</html>
