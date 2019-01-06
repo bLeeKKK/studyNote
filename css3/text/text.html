@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>text</title>
     <style>
+        /* 字体阴影 */
         .div1{
             font-size: 50px;
 
@@ -46,6 +47,37 @@
         .div4:hover::before{
             content: "NO ";
         }
+
+        /* 字体描边 */
+        .div5{
+            color: yellow;
+            font-size: 50px;
+            -webkit-text-stroke: 1px blue;
+        }
+
+        /* 字体样式引入 */
+        /* 例：阿里字体iconfont:(https://www.iconfont.cn)使用的这个 */
+        @font-face{
+            /* 定义名称 */
+            font-family: "abc";
+            /* 引入字体 可用format映射操作系统的工具进行解析文件 */
+            src: url("diyfont.woff") format('woff'),
+                    url("diyfont.ttf") format('truetype'),
+                    url("diyfont.svg#fontname") format('svg');
+
+        }
+
+        /* 换行 */
+        .div6{
+            /* normal，pre（保持不动书写格式），nowrap（不换行），pre-wrap，pre-line */
+            white-space: pre;
+        }
+
+        .div7{
+            width: 50px;
+            /* 强制换行 break-all（不管强制换行），break-word（尽量让英文不折行） */
+            word-break: break-all;
+        }
     </style>
 </head>
 <body>
@@ -64,5 +96,22 @@
     <div class="div4">
         TEXT SHADOW
     </div>
+
+    <div class="div5">
+        TEXT SHADOW
+    </div>
+
+    <div class="div6">
+        TEXT SHADOW   
+        
+        
+        
+        啦啦啦
+    </div>
+
+    <div class="div7">
+        TEXT SHADOWTEXT SHADOWTEXT SHADOWTEXT 
+    </div>
+
 </body>
 </html>

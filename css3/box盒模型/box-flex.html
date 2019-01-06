@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* 弹性盒子 */
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .div1{
+            height: 500px;
+            width: 500px;
+            border: 1px solid rgb(0, 26, 255);
+            margin: auto;
+
+            /* 弹性盒子 */
+            /*  flex  或者 inline-flex（盒子会变成内敛属性）*/
+            display: flex; 
+
+            /* 调节主轴方向 row(默认 横向) ，column（纵向），row-reverse（横向反向），column-reverse（横向反向） */
+            flex-direction: row;
+
+            /* 控制换行 nowrap(默认 不换行), wrap(换行),wrap-reverse(不常用 倒过来换行) */
+            flex-wrap: wrap;
+
+            /* 基于主轴的对齐方式 flex-end,flex-start,center,space-between,space-around */
+            justify-content: center;
+
+            /* 基于交叉轴的对齐方式  strech(默认值 拉伸撑开交叉轴方向) ,flex-end,flex-start,center,baseline(基于第一个盒子内的 内容对齐)*/
+            /* 注：这个主要还是针对 单行元素 处理对齐方式的 */
+            align-items: baseline; 
+
+            /* flex-end,flex-start,center,space-between,space-around,stretch */
+            /* 注：这个主要还是针对 多行元素 处理对齐方式的（只有达到多行元素后才生效） */
+            align-content: center;
+        }
+        .div1 p{
+            height: 50px;
+            width: 50px;
+            border: 1px solid red;
+
+            /* 弹性盒子 子项属性 */
+            /* 剩余的空间分配比例 */
+            flex-grow: 0;
+
+            /* 超出部分的减去比例（计算方式 需要加权） */
+            flex-shrink: 0;
+        }
+        .div1 p:first-of-type{
+            margin-top: 30px; 
+
+            /* 弹性盒子 子项属性 */
+            /* 所有order的默认值为 0 决定排列顺序 */
+            order: -2;
+
+            /* 子级设置自己造交叉轴的排列方式 auto,flex-end,flex-start,center,baseline */
+            /* 他们的优先级是 align-content > align-self > align-items */
+            align-self: flex-start;
+        }
+        .div1 p:nth-of-type(2){
+            margin-top: 30px;
+            order: -3;
+
+            /* 子级设置自己造交叉轴的排列方式 auto,flex-end,flex-start,center,baseline */
+            align-self: flex-end;
+        }
+
+        /* flex-shrink 的计算比例需要加权 */
+        .div2{
+            width: 600px;
+            height: 200px;
+            border: 1px solid red;
+            margin: auto;
+            
+            display: flex;
+        }
+        .div2 p{
+            width: 200px;
+            flex-shrink: 1;
+        }
+        /* 
+            div2宽 600px 子宽总和 800px，所以超出 200px；
+
+            flex-shrink 减去比例进行加权 
+            注：这里乘以的宽度 为 真实内容区 的宽度
+            200px * 1 + 200px * 1 + 400px * 3 = 1600px （获取的加权值）
+        
+            前两个盒子 减去的比例为 （200 * 1）/1600 = 1/8;
+            第三盒子减去的比例为    （400 * 3）/1600 = 3/4;
+
+            即：
+                (内容区真实宽度 * shrink值) + (内容区真实宽度 * shrink值) + .... = 加权值
+                (内容区真实宽度 * shrink值) / 加权值 = 每一项应该减去的宽度
+         */
+        .div2 p:nth-of-type(3){
+            width: 400px;
+            flex-shrink: 3;
+        }
+
+        .div3{
+            width: 600px;
+            height: 500px;
+            border: 1px solid firebrick;
+
+            display: flex;
+        }
+        .div3 P{
+            /* 只有 flex-basis 元素宽度的最小值 内容超出可以撑开 */
+            flex-basis: 100px;
+            /* 注：撑开的盒子不参与压缩（加入换行属性就行） */
+             /* 只有 flex-basis和width 都设置的时候 元素宽度的最大值 内容超出可以撑开（注：width 如果小于flex-basis 那么最大值就为flex-basis的值） */
+            width: 150px;
+            height: 50px;
+        }
+        .div3 P:nth-of-type(1){
+            background-color: #ff0;
+        }
+        .div3 P:nth-of-type(2){
+            background-color: #0ff;
+            opacity: 0.3;
+        }
+        .div3 P:nth-of-type(3){
+            background-color: #f0f;
+        }
+
+        /* flex（grow，shrink，basis） 的 默认值 flex：0 0 auto */
+    </style>
+</head>
+<body>
+    <div class="div1">
+        <p>1</p>
+        <p>2</p>
+        <p>3</p>
+    </div>
+    
+    <div class="div2">
+        <p>1</p>
+        <p>2</p>
+        <p>3</p>
+    </div>
+
+    <div class="div3">
+        <p>11111111111111111111111111</p>
+        <p>2</p>
+        <p>3</p>
+    </div>
+</body>
+</html>
