@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>animation</title>
+    <style>
+        @keyframes run{
+            /* 0% 可以用 from 来表示 */
+            0%{
+                left: 0;
+                top: 0;
+                /* background-color: brown; */
+            }
+            25%{
+                left: 100px;
+                top: 0;
+                /* background-color: #0f0; */
+            }
+            50%{
+                left: 100px;
+                top: 100px;
+                /* background-color: #ff0; */
+            }
+            75%{
+                left: 0;
+                top: 100px;
+                /* background-color: #0ff; */
+            }
+            /* 100% 可以用 to 来表示 */
+            100%{
+                left: 0;
+                top: 0;
+                /* background-color: brown; */
+            }
+        }
+
+        @keyframes colorCg{
+            0%{
+                background-color: #0f0;
+            }
+            60%{
+                background-color: #ff0;
+            }
+            100%{
+                background-color: #0f0;
+            }
+        }
+
+        .div1{
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: brown;
+
+            /* animation:   动画名称 
+                            动画时间 
+                            运动函数(每一段的运动的状态贝塞尔曲线cubic-bezier(x1,y1,x2,y2)) 
+                            延迟开始时间 
+                            运动次数(填数字,infinite(无限次)) 
+                            运动方式 */
+            animation: run 4s,colorCg 6s ease 1s 1 reverse;
+            
+            /* 运动名称 */
+            /* animation-name: run; */
+
+            /* 运动时间 */
+            /* animation-duration: 4s; */
+
+            /* 运动函数(贝塞尔曲线) */
+            /* animation-timing-function: cubic-bezier(0,0,1,1) */
+
+            /* 延迟开始时间 */
+            /* animation-delay: 2s */
+
+            /* 运动次数 数字,infinite(无限) */
+            /* animation-iteration-count: 2; */
+
+            /* 播放方式,走关键帧的方向 normal(默认),reverse(反向走),alternate(轮转播放,钟摆式轮回),alternate-reverse(alternate的反方向运行，没啥用~)  */
+            /* animation-direction: alternate; */
+
+            /* 播放状态 running,paused (兼容性有点问题，用的不多) */
+            /* animation-play-state: running;*/
+
+            /* 动画播放模式 forwards(动画完成后 使用最后一帧的状态显示)，backwards(动画开始前 使用第一帧的状态)，both(两个都使用) */
+            /* animation-fill-mode: backwards; */
+
+            /*  end 保留当前帧状态，直到这段动画时间结束
+                start 保留下一帧状态，直到这段动画时间结束
+
+                特殊写法：steps(1, end) === step-end
+                         steps(1, start) === step-start
+                使用 steps控制动画 end(默认 常用,使用 forwards 弥补end 每次动画过程都会保持当前帧,到最后无法显示最后一帧的问题)和start */
+            animation: run 4s steps(2,end) forwards;
+        }
+
+        /* 打字效果 */
+        @keyframes flicker{
+            from{
+                opacity: 1;
+            }
+            50%{
+                opacity: 0; 
+            }
+            to{
+                opacity: 1;
+            }
+        }
+        @keyframes wordDown{
+            from{
+                width: 0em;
+            }
+            20%{
+                width: 1em;
+            }
+            33%{
+                width: 2em;
+            }
+            66%{
+                width: 3em;
+            }
+            to{
+                width: 4em;
+            }
+        }
+        .div2{
+            display: flex;
+        }
+        .div2 span:nth-of-type(1){
+            white-space: nowrap;
+            width: 0em;
+            overflow: hidden;
+            animation: wordDown 5s steps(1,end) forwards;
+        }
+        .div2 span:nth-of-type(2){
+            animation: flicker 1s steps(1,end) infinite;
+        }
+
+        /* 钟表效果 */
+        /* 跑马效果 */
+
+    </style>
+</head>
+<body>
+    <!-- <div class="div1"></div> -->
+
+    <div class="div2">
+        <span>我上天了</span>
+        <span>|</span>
+    </div>
+
+
+</body>
+</html>

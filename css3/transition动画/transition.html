@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .div1{
+            height: 100px;
+            width: 100px;
+            background-color: #0ff;
+
+            /* 值的意思 transition: 动画属性 动画时间 运动函数(贝塞尔曲线:cubic-bezier(x1,y1,x2,y2),x的值在1内以为时间值不能改) 延迟多久开始 */
+            transition: all 3s ease .5s;
+        }
+        .div1:hover{
+            height: 200px;
+            width: 200px;
+            background-color: #f0f;
+        }
+    </style>
+</head>
+<body>
+    <div class="div1"></div>
+</body>
+</html>
