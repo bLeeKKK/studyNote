@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>transfrom</title>
+    <style>
+        .div1{
+            margin: 100px;
+            height: 100px;
+            width: 100px;
+            background-image: linear-gradient(red,blue);
+
+            /* 伸缩的是坐标轴的刻度 
+                （元素的大小不变）
+                （会发生叠加操作）
+                （伸缩过一次的坐标轴将，将一直保持在这个坐标轴上）
+                 scalez(1) 方向上的伸缩 */
+            transform: scale(2,1) rotate(45deg) scale(2,1);
+        }
+        .div2{
+            margin: 100px;
+            height: 100px;
+            width: 100px;
+            background-image: linear-gradient(red,blue);
+            
+            /* 倾斜 skew（y轴倾斜角度，x轴倾斜角度）坐标轴可得还被拉伸了 */
+            transform: skew(10deg,0deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="div1"></div>
+    <div class="div2"></div>
+</body>
+</html>

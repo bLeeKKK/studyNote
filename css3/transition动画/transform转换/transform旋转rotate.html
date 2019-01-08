@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>transform旋转rotate</title>
+    <style>
+        @keyframes rot{
+            from{
+                transform: rotateX(-45deg);
+            }
+            to{
+                transform: rotateX(45deg);
+            }
+        }
+        
+        body{
+            /* 增加3d效果 */
+            /* 井深 */
+            perspective: 800px; 
+            /* 3d效果 */
+            transform-style: preserve-3d;
+            /* 视角 */
+            perspective-origin: 300px 300px;
+        }
+
+        .div1{
+            margin-top: 200px;
+            margin-left: 200px;
+            height: 100px;
+            width: 200px;
+            background-image: radial-gradient(red,blue);
+            display: inline-block;
+            transform-origin: 0 0;
+            
+            /* 每次变化都会改变坐标轴的方向 */
+            /* X,Y,Z轴旋转 */
+            /* transform: rotateX(0deg) rotateY(90deg) rotateZ(90deg); */
+            /* 自定义空间方向 方向为想 xyz组合的矢量 最后填旋转角度 */
+            /* transform: rotate3d(x,y,z, 45deg); */
+            animation: rot 1s alternate infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="div1">
+        111
+    </div>
+</body>
+</html>
