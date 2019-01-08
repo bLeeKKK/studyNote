@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>background背景</title>
     <style>
         .div1{
             height: 200px;
@@ -21,10 +21,14 @@
             background-origin: content-box;
             /* 从哪里开始剪切背景图片 content-box，padding-box，border-box(默认值)，text */
             background-clip: content-box; 
+            box-sizing: border-box;
+            padding: 10px;
 
             /* 文字背景 这两配合使用 */
-            background-clip: text;   
-            -webkit-text-fill-color: transparent;    
+            /* background-clip: text;   
+            font-size: 20px;
+            font-weight: bold;
+            -webkit-text-fill-color: transparent;     */
 
             /* 背景图排列方式 repeat,no-repeat,repeat-x,repeat-y,space,round */
             background-repeat: repeat;                                     
@@ -34,7 +38,7 @@
             height: 200px;
             width: 200px;
             border: 1px solid red;
-            overflow: scroll;
+            overflow: auto;
 
             background-size: 50px;
             background-repeat: no-repeat;
@@ -64,7 +68,7 @@
             /* 直线 */
             /* background-image: linear-gradient(to right, red 20px,blue); */
             /* 径向 circle(圆)（其他值：ellipse(椭圆)） 然后放射半径 [closest-corner 译：最近的角,closest-side 译：最近的边, farthest-corner, farthest-side]  */
-            background-image: radial-gradient(ellipse closest-corner at 50px 50px, red 20px,blue)
+            background-image: radial-gradient(circle at 50px 50px, red,blue)
         }
 
         .div5{
@@ -76,12 +80,14 @@
             color: blue;
 
             /* 中转颜色 中转了color的颜色 默认就是 */
-            border-color: currentColor;
+            /* border-color: currentColor; */
         }
     </style>
 </head>
 <body>
-    <div class="div1"></div>
+    <div class="div1">
+        <span>1111</span>
+    </div>
 
     <div class="div2">
             、开辟单变量地址空间

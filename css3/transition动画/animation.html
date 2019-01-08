@@ -138,18 +138,97 @@
         }
 
         /* 钟表效果 */
-        /* 跑马效果 */
+        @keyframes runSe{
+            from{
+                transform: rotate(-90deg);
+            }
+            to{
+                transform: rotate(270deg);
+            }
+        }
+        .div3{
+            height: 200px;
+            width: 200px;
+            border-radius: 50%;
+            border: 2px solid #442422;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .div3 .zhen{
+            height: 6px;
+            width: 6px;
+            border-radius: 50%;
+            border: 2px solid #6e3632;
+            display: flex;
+            /* align-items: center; */
+            justify-content: center;
+            flex-direction: column;
+            padding: 3px;
+            box-sizing: border-box;
+        }
+        .div3 .zhen::before{ 
+            /* 分 */
+            content: "";
+            position: absolute;
+            width: 60px;
+            flex: 0 0 auto;
+            /* height: 2px; */
+            border-top: 2px solid #424242;
+            transform-origin: 0 1px;
 
+            animation: runSe 3600s steps(60,end) forwards infinite;
+        }
+        .div3 .zhen::after{ 
+            /* 秒 */
+            content: "";
+            position: absolute;
+            width: 80px;
+            flex: 0 0 auto;
+            /* height: 2px; */
+            border-top: 2px solid #5a0000;
+            transform-origin: 0 1px;
+
+            animation: runSe 60s steps(60,end) forwards infinite;
+        }
+
+        /* 跑马效果 */
+        @keyframes zou{
+            from{
+                left: -145px;
+            }
+            to{
+                left: -470px;
+            }
+        }
+        .div4{
+            height: 650px;
+            width: 60px;
+            overflow: hidden;
+            position: relative;
+        }
+        .div4 img{
+            position: absolute;
+            left: -145px;
+
+            animation: zou .5s steps(6,end) forwards infinite;
+        }
     </style>
 </head>
 <body>
     <!-- <div class="div1"></div> -->
-
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
     <div class="div2">
-        <span>我上天了</span>
+        <span>天下第一</span>
         <span>|</span>
     </div>
 
+    <div class="div3">
+        <div class="zhen"></div>
+    </div>
 
+    <div class="div4">
+        <img src="./timg.jpg"/>
+    </div>
 </body>
 </html>
