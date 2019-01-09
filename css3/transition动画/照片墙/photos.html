@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>photos</title>
+    <style>
+        body{
+            perspective: 2000px;
+            /* transform-style: preserve-3d; */
+        }
+        @keyframes round{
+            form{
+                transform: rotateY(0deg)
+            }
+            to{
+                transform: rotateY(360deg)
+            }
+        }
+        div{
+            width: 200px;
+            height: 200px;
+            position: relative;
+            margin: auto;
+            margin-top: 200px;
+
+            /* 为了出现3d的层叠效果 */
+            transform-style: preserve-3d; 
+            animation: round 8s ease forwards infinite;
+        }
+        div img{
+            width: 500px;
+            position: absolute;
+
+            /* 显示图片背面 visible(默认 可以显示)，hidden(隐藏) */
+            backface-visibility: hidden;
+        }
+        img:nth-of-type(1){
+            transform: rotateY(0deg) translateZ(600px)
+        }
+        img:nth-of-type(2){
+            transform: rotateY(45deg) translateZ(600px)
+        }
+        img:nth-of-type(3){
+            transform: rotateY(90deg) translateZ(600px)
+        }
+        img:nth-of-type(4){
+            transform: rotateY(135deg) translateZ(600px)
+        }
+        img:nth-of-type(5){
+            transform: rotateY(180deg) translateZ(600px)
+        }
+        img:nth-of-type(6){
+            transform: rotateY(225deg) translateZ(600px)
+        }
+        img:nth-of-type(7){
+            transform: rotateY(270deg) translateZ(600px)
+        }
+        img:nth-of-type(8){
+            transform: rotateY(315deg) translateZ(600px)
+        }
+
+    </style>
+</head>
+<body>
+    <div>
+        <img src="./img_1.jpg" alt="">
+        <img src="./img_2.jpg" alt="">
+        <img src="./img_3.jpg" alt="">
+        <img src="./img_4.jpg" alt="">
+        <img src="./img_5.jpg" alt="">
+        <img src="./img_6.jpg" alt="">
+        <img src="./img_7.jpg" alt="">
+        <img src="./img_8.jpg" alt="">
+        <!-- <img src="./img_9.jpg" alt=""> -->
+    </div>
+</body>
+</html>
