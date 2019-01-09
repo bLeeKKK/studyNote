@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>border和boxShadow</title>
     <style>
         /* border */
         /* 基本 简单写法 */
         .div1{
             width: 100px;
             height: 100px;
-            border: 1px solid #000000;
+            border: 1px solid #fff;
 
             border-radius: 10px 20px 30px 40px / 10px 20px 30px 40px;
         }
@@ -19,7 +19,7 @@
         .div2{
             width: 100px;
             height: 100px;
-            border: 1px solid #000000;
+            border: 1px solid #fff;
 
             box-shadow: inset 0px 0px 0px 0px rgb(255, 123, 0);
             /* 值的含义：内部还是外部阴影(默认为外部) x偏移 y偏移 模糊值(高斯模糊) 放大值*/
@@ -45,6 +45,20 @@
                         -10px 0 80px #f0f,
                         10px 0 80px #0ff;
         }
+        .div3-1{
+            margin-top: 20px;
+            width: 300px;
+            height: 300px;
+            /* border: 1px solid rgba(255, 255, 255, .5); */
+            border-radius: 50%; 
+            
+            box-shadow: inset 0px 0px 50px #fff,
+                        inset 15px 6px 100px #f00,
+                        inset -15px -6px 100px #2b5cff,
+                        -15px -6px 100px #f00,
+                        15px 6px 100px #2b5cff,
+                        0 0 50px #fff;
+        }
         .div4{
             margin-top: 20px;
             width: 50px;
@@ -62,7 +76,7 @@
             width: 100px;
             background-color: #fff;
             box-shadow: 0 1px 2px rgb(250, 250, 250);
-            transition: all .6s;
+            transition: all 1s cubic-bezier(1, 0, 0, 2);
         }
         .div5:hover{
             height: 200px;
@@ -77,6 +91,7 @@
     <div class="div2"></div>
 
     <div class="div3"></div>
+    <div class="div3-1"></div>
 
     <div class="div4"></div>
 

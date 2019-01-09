@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>伪类选择器</title>
     <style>
         /* 伪类选择器是被选择元素的一种状态 */
 
         /* placeholder 选择器 就能改变一个input中的placeholder颜色 */
         input::placeholder{
-            color: green
+            color: rgb(0, 255, 0);
         }
 
         /* 鼠标拖动选中 颜色时候文章的状态 */
@@ -33,7 +33,7 @@
         }
 
         /* 配合<a>标签 展示效果 */
-        div3 div:target{
+        .div3 div:target{
             border: 1px solid red;
         }
 
@@ -160,5 +160,6 @@
         <input type="text" readonly value="啦啦啦啦啦" name="" id="">
         <input type="text" name="" id="">
     </div>
+    
 </body>
 </html>
