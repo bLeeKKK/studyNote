@@ -11,10 +11,43 @@
             perspective: 800px;
             /* 视线位置 */
             perspective-origin: 300px 300px; 
+            /* 上述操作虽然看起来是3d效果，但是始终只有一层，
+                所以需要能层叠看到样式，让浏览器显示看起来更加有3D效果
+                注：只对直接子元素其效果 */
+            transform-style: preserve-3d;
+        }
+        .div1{
+            margin-top: 200px;
+            margin-left: 200px;
+            height: 200px;
+            width: 200px;
+            background-image: radial-gradient(red,blue);
+
+            /* 单独设置 transform 中的 perspective 也能产生3d效果
+                注：perspective() 最好写在第一个，不然有的浏览器可能不识别，
+                    且和父级的井深可以叠加*/
+            transform: perspective(800px) rotatey(45deg);
+        }
+
+        .div2{
+            margin-top: 200px;
+            margin-left: 200px;
+            height: 200px;
+            width: 200px;
+            background-image: radial-gradient(red,blue);
+
+            transform: rotatey(45deg);
+
+            /* 可以设置空间的中心 x,y,z */
+            transform-origin: 100px 100px 100px;
         }
     </style>
 </head>
 <body>
     
+    <div class="div1"></div>
+
+    <div class="div2"></div>
+
 </body>
 </html>
