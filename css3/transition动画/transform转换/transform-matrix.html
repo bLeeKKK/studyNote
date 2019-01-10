@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>matrix</title>
+    <style>
+        /* （基础）矩阵的乘法计算法则
+
+            | a c e |   | x |      | ax + cy + e |
+            | b d f | * | y | =    | bx + dy + f |
+            | 0 0 1 |   | 1 |      | 0  + 0  + 1 |
+         */
+
+        /* 2D */
+        /* 
+        例：matrix(1,0,0,1,e,f) === translate(x,y);
+            | 1 0 e |   | x |   | x + e |
+            | 0 1 f | * | y | = | y + f |
+            | 0 0 1 |   | 1 |   | 1     |
+
+         例：matrix(a,0,0,d,0,0) === scale(x,y);
+            | a 0 0 |   | x |   | ax |
+            | 0 d 0 | * | y | = | dy |
+            | 0 0 1 |   | 1 |   | 1  |
+
+         例：matrix(cos(θ),sin(θ),-sin(θ),cos(θ),0,0) === roate(θ); (注释：θ是个变量，这不是零的0)
+            | cos(θ) -sin(θ) e |   | x |   
+            | sin(θ) cos(θ)  f | * | y | =
+            | 0      0       1 |   | 1 |   
+
+         */
+
+         /* 3D */
+         /* .... 略 */
+         img{
+             width: 500px;
+            
+            /* 
+                得到镜像
+                计算公式：
+                | -1 0 0 |   | x |   | -x |
+                | 0  1 0 | * | y | = | y  |
+                | 0  0 1 |   | 1 |   | 1  |
+            
+             */
+             transform: matrix(-1,0,0,1,0,0)
+         }
+    </style>
+</head>
+<body>
+    <img src="./img_1.jpg" alt="" srcset="">
+    <div class="div1"></div>
+</body>
+</html>
