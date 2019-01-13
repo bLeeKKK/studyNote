@@ -12,6 +12,40 @@
             lcd显示屏
                 液晶体成像，通过电磁场控制
          */
+
+        /* 
+            dpi 物理像素点 在一英寸里面的数量 1 in ≈ 2.54 cm
+
+            参照像素 96dpi ≈ 2.54 / 100 = 0.25
+
+            css像素 = 逻辑像素 (我们编写的像素)
+
+            设备像素 dpr = 物理像素/css像素  
+
+         */
+
+
+         /* 
+         
+            transform: .... translatez(0); 使用这个 提醒浏览器使用GPU计算（老的办法）;
+
+            will-change: transform; 直接使用GPU加速（标准方法）; //让浏览器监听着这个属性
+
+            最好的写法
+            div{
+                width: 100px;
+                height: 100px;
+            }
+
+            div:hover{
+                //变化前一刻告诉浏览器注意这个属性用 gpu 渲染
+                will-change: transform;
+            }
+
+            div:active{
+                transform: scale(2,3)
+            }
+          */
     </style>
 </head>
 <body>
