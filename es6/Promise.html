@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Promise Es6</title>
+</head>
+<body>
+    <script>
+        const p1 = new Promise((resolve,reject)=>{
+            setTimeout(()=>{
+                reject(1)
+            },1000)
+        })
+            // .then((res)=>{
+            // console.log('then p1',res)
+            // }).catch((res)=>{
+            //     console.log('catch p1',res)
+            // })
+
+
+        const p2 = new Promise((resolve,reject)=>{
+            // 当 Promise1 对象返回另一个 Promise2 对象时，自己（Promise1）的状态失效，使用传入的另外一个的 Promise2 状态。
+            // 如果 Promise1 是 pending 状态那么会等待（Promise1）的状态改变后执行（Promise2）的回调函数
+            setTimeout(()=>{
+                resolve(p1)
+            },3000)
+        })
+
+        const p3 = new Promise((resolve,reject)=>{
+            // 没有回调的 Promise 对象会在控制台报错 "Promise.html:30 Uncaught (in promise)"
+            reject('99')
+        })
+
+        p2
+            .then((res)=>{
+                console.log('then p2',res)
+            }).catch((res)=>{
+                console.log('catch p2',res)
+            })
+
+
+        // .then() 方法必定返回一个 Promise.resolve() 的实例对象。
+        // 并且将 .then(function) 中的 function 的返回值（res）作为参数传入 Promise.resolve(res)。
+        const p4 = new Promise((resolve,reject)=>{
+                        resolve(1)
+                    }).then((res)=>{
+                        // console.log(res)
+                        return  new Promise((resolve,reject)=>{
+                                    reject(res);
+                                });
+                    }).then((res)=>{
+                        console.log(res,"dui")
+                        return res;
+                    },(res)=>{
+                        console.log(res,"err")
+                        return new Promise((resolve,reject)=>{
+                                    reject(res);
+                                });
+                    })
+        setTimeout(()=>{
+            console.log(p4,"这里是p4")
+        },10000)
+        // 证明 (发现：如果Promise中执行时报错 执行 reject() ，两个不存在的 res 变量)
+        Promise.resolve(new Promise((resolve,reject)=>{
+            // console.log("-.-",res)
+            resolve();
+            // console.log("-.-",res)
+        })).then(()=>{
+                console.log("p4证明 resolve")
+            },()=>{
+                console.log("p4证明 reject")
+            })
+    </script>
+</body>
+</html>
