@@ -36,6 +36,9 @@ class App extends Component {
   
 
   render() {
+    const style = {
+      backgroundColor: "yellow",
+    };
     return (
       <div className="App">
         <Person name="lb" count="20" />
@@ -46,7 +49,7 @@ class App extends Component {
 
         {/* 点击事件中传参数的两种方法 */}
         <button onClick={()=>this.switchData('newname')}>按钮</button>
-        <button onClick={this.switchData.bind(this,'newNAme')}>按钮</button>
+        <button style={style} onCli ck={this.switchData.bind(this,'newNAme')}>按钮</button>
 
         <Person myclick={this.switchData.bind(this,'ssss')}
                 name={this.state.persons[0].name} 
