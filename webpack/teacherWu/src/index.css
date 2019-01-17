@@ -1,0 +1,9 @@
+body{
+    color: rgb(158, 87, 87);
+    text-align: center;
+    text-shadow: 1px 1px rgb(48, 70, 131);
+}
+img{
+    width: 100vw;
+    border-radius: 50%;
+}
