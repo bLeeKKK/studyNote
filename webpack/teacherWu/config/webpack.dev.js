@@ -1,4 +1,5 @@
 const path = require("path");
+const webpack = require("webpack");
 
 module.exports = {
     // 入口: 有且可以有多个
@@ -30,6 +31,9 @@ module.exports = {
     // 配置本地服务器
     devServer:{
         contentBase: "dist",
+
+        // 热更新
+        hot: true,
 
         // 是否直接在页面中提示错误
         overlay: true,
@@ -100,5 +104,8 @@ module.exports = {
                 ]
             }
         ]
-    }
+    },
+    plugins:[
+        new webpack.HotModuleReplacementPlugin()
+    ]
 }
