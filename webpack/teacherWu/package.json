@@ -12,7 +12,18 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
+    "@babel/runtime": "^7.2.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.0-beta.0",
+    "babel-plugin-async-to-promises": "^1.0.5",
+    "babel-plugin-transform-es2015-arrow-functions": "^6.22.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
     "css-loader": "^2.1.0",
+    "express": "^4.16.4",
     "extract-loader": "^3.1.0",
     "file-loader": "^3.0.1",
     "html-loader": "^0.5.5",
@@ -20,5 +31,8 @@
     "webpack": "^4.28.4",
     "webpack-cli": "^3.2.1",
     "webpack-dev-server": "^3.1.14"
+  },
+  "devDependencies": {
+    "@babel/plugin-transform-runtime": "^7.2.0"
   }
 }
