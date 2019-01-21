@@ -1,0 +1,27 @@
+{
+    // 单个插件配置
+    "plugins": [
+        "transform-es2015-arrow-functions", //箭头函数转 普通 function函数
+        "async-to-promises" //es2018 的 async 语法转变为 promise 语法
+    ],
+
+    // 直接全部
+    // "presets": [
+    //     [
+    //         "env",
+    //         {
+    //             // 支持的浏览器版本
+    //             "targets": {
+    //                 "browsers": ["last 2 versions"]
+    //             },
+    //             // debug模式可以看到具体配置了那些文件
+    //             "debug": true,
+    //         }
+    //     ]
+    // ],
+
+    // "plugins": [
+    //     // 这个插件可以解决 Promise 时的变量污染问题
+    //     "transform-runtime",
+    // ]
+}

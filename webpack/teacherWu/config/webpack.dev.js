@@ -1,11 +1,18 @@
 const path = require("path");
+const webpack = require("webpack");
 
 module.exports = {
     // 入口: 有且可以有多个
     entry: {
-        main: "./src/main.js"
-        // 如果有多个入口文件
+        // 普通的入口文件写法
+        main: ["./src/main.js"],
+
+        // 配置多个入口文件的写法
         // main: ["./src/main.js","./src/others.js"]
+
+        // 配置es6的转换插件
+        // main: ["./src/main.js","babel-polyfill"],
+        // main: ["./src/main.js","core-js/fn/promise"],
     },
 
     // 打包环境 development （开发环境），production（生产环境）
@@ -25,6 +32,9 @@ module.exports = {
     devServer:{
         contentBase: "dist",
 
+        // 热更新
+        hot: true,
+
         // 是否直接在页面中提示错误
         overlay: true,
     },
@@ -32,6 +42,17 @@ module.exports = {
     // 配置加载器
     module:{
         rules:[
+            //js loaders
+            {
+                test: /\.js$/,
+                use:[
+                    {
+                        loader: "babel-loader"
+                    },
+                ],
+                // 排除 node_modules 下的 .js 文件
+                exclude: /node_modules/
+            },
             // css loaders
             {
                 test: /\.css$/,
@@ -83,5 +104,8 @@ module.exports = {
                 ]
             }
         ]
-    }
+    },
+    plugins:[
+        new webpack.HotModuleReplacementPlugin()
+    ]
 }
