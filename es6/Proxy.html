@@ -10,15 +10,19 @@
     <script>
         // 基础用法 new Proxy(target, handler); 
         // Proxy 对象的所有用法，都是上面这种形式，不同的只是handler参数的写法。
-        // 其中，new Proxy()表示生成一个Proxy实例，target参数表示所要拦截的目标对象，handler参数也是一个对象，用来定制拦截行为。
+        // 其中，new Proxy()表示生成一个Proxy实例，
+                //target参数表示所要拦截的目标对象，
+                //handler参数也是一个对象，用来定制拦截行为。
         let obj = {}
         var proxy = new Proxy(obj, {
                                 set: function (target, key, value, receiver) {
+                                    // 可以接受四个参数：依次为目标对象、属性名、属性值和 Proxy 实例本身，其中最后一个参数可选。
                                     console.log(`setting ${key}!`);
                                     console.log(target, key, receiver,Reflect.set(target, key, value, receiver));
                                     return Reflect.set(target, key, value, receiver);
                                 },
                                 get: function (target, key, receiver) {
+                                    // 可以接受三个参数：依次为目标对象、属性名和 proxy 实例本身（严格地说，是操作行为所针对的对象）
                                     console.log(`getting ${key}!`);
                                     console.log(target, key, receiver,Reflect.get(target, key, receiver));
                                     return Reflect.get(target, key, receiver);
@@ -28,6 +32,84 @@
         proxy.num2 = 2;
         // 操作 obj 不走拦截器，操作 proxy 走拦截器
         console.log(obj,proxy)
+        // 下面是 Proxy 支持的拦截操作一览，一共 13 种。
+
+        // get(target, propKey, receiver)：拦截对象属性的读取，比如proxy.foo和proxy['foo']。
+        // set(target, propKey, value, receiver)：拦截对象属性的设置，比如proxy.foo = v或proxy['foo'] = v，返回一个布尔值。
+        // has(target, propKey)：拦截propKey in proxy的操作，返回一个布尔值。
+        // deleteProperty(target, propKey)：拦截delete proxy[propKey]的操作，返回一个布尔值。
+        // ownKeys(target)：拦截Object.getOwnPropertyNames(proxy)、Object.getOwnPropertySymbols(proxy)、Object.keys(proxy)、for...in循环，返回一个数组。该方法返回目标对象所有自身的属性的属性名，而Object.keys()的返回结果仅包括目标对象自身的可遍历属性。
+        // getOwnPropertyDescriptor(target, propKey)：拦截Object.getOwnPropertyDescriptor(proxy, propKey)，返回属性的描述对象。
+        // defineProperty(target, propKey, propDesc)：拦截Object.defineProperty(proxy, propKey, propDesc）、Object.defineProperties(proxy, propDescs)，返回一个布尔值。
+        // preventExtensions(target)：拦截Object.preventExtensions(proxy)，返回一个布尔值。
+        // getPrototypeOf(target)：拦截Object.getPrototypeOf(proxy)，返回一个对象。
+        // isExtensible(target)：拦截Object.isExtensible(proxy)，返回一个布尔值。
+        // setPrototypeOf(target, proto)：拦截Object.setPrototypeOf(proxy, proto)，返回一个布尔值。如果目标对象是函数，那么还有两种额外操作可以拦截。
+        // apply(target, object, args)：拦截 Proxy 实例作为函数调用的操作，比如proxy(...args)、proxy.call(object, ...args)、proxy.apply(...)。
+        // construct(target, args)：拦截 Proxy 实例作为构造函数调用的操作，比如new proxy(...args)。
+
+
+        // 利用 Proxy，可以将读取属性的操作（get），转变为执行某个函数，从而实现属性的链式操作。
+        var pipe = (function () {
+        return function (value) {
+            var funcStack = [];
+            var oproxy = new Proxy({} , {
+            get : function (pipeObject, fnName) {
+                if (fnName === 'get') {
+                    return funcStack.reduce(function (val, fn) {
+                        return fn(val);
+                    },value);
+                }
+                funcStack.push(window[fnName]);
+                return oproxy;
+            }
+            });
+
+            return oproxy;
+        }
+        }());
+
+        var double = n => n * 2;
+        var pow    = n => n * n;
+        var powF    = n => n * 5;
+        var reverseInt = n => n.toString().split("").reverse().join("") | 0;
+
+        let sum = pipe(3).double.pow.powF.reverseInt.get; // 63
+        console.log(sum)
+        // 上面代码设置 Proxy 以后，达到了将函数名链式使用的效果。
+
+        // 下面的例子则是利用get拦截，实现一个生成各种 DOM 节点的通用函数dom。
+        const dom = new Proxy({}, {
+            get(target, property) {
+                return function(attrs = {}, ...children) {
+                const el = document.createElement(property);
+                for (let prop of Object.keys(attrs)) {
+                    el.setAttribute(prop, attrs[prop]);
+                }
+                for (let child of children) {
+                    if (typeof child === 'string') {
+                    child = document.createTextNode(child);
+                    }
+                    el.appendChild(child);
+                }
+                return el;
+                }
+            }
+        });
+
+        const el = dom.div({},
+        'Hello, my name is ',
+        dom.a({href: '//example.com'}, 'Mark'),
+        '. I like:',
+        dom.ul({},
+            dom.li({}, 'The web'),
+            dom.li({}, 'Food'),
+            dom.li({}, '…actually that\'s it')
+        )
+        );
+
+        document.body.appendChild(el);
+        // 下面是一个get方法的第三个参数的例子，它总是指向原始的读操作所在的那个对象，一般情况下就是 Proxy 实例。
     </script>
 </body>
 </html>
