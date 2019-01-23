@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Class</title>
+</head>
+<body>
+    <script>
+        class Point {
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+                // return {};
+            }
+            
+            toString() {
+                return '(' + this.x + ', ' + this.y + ')';
+            }
+
+            get prop(){
+                console.log("这是get");
+                return "这是get"
+            }
+            set prop(val){
+                console.log("这是set:" + val);
+                return "这是set"
+            }
+        }
+        let point = new Point(1,2);
+        console.log(point instanceof Point) //point 的构造函数是否为 Point;
+
+        let obj = {};
+        let fun = function(){};
+    </script>
+</body>
+</html>
