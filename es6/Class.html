@@ -12,10 +12,15 @@
             constructor(x, y) {
                 this.x = x;
                 this.y = y;
-                // return {};
+                // return {x,y};
             }
             
             toString() {
+                return '(' + this.x + ', ' + this.y + ')';
+            }
+
+            // 定义静态方法
+            static classMethod() {
                 return '(' + this.x + ', ' + this.y + ')';
             }
 
@@ -29,10 +34,25 @@
             }
         }
         let point = new Point(1,2);
+        console.log(point) 
         console.log(point instanceof Point) //point 的构造函数是否为 Point;
 
-        let obj = {};
-        let fun = function(){};
+        // 继承extends 父类的关键字super
+        class ColorPoint extends Point {
+            constructor(x, y, color) {
+                // 必须调用 super ！！！！！！！！
+                // 只有调用super之后，才可以使用this关键字
+                super(x, y);             // 调用父类的constructor(x, y)
+                this.color = color;
+            }
+
+            toString() {
+                return this.color + ' ' + super.toString(); // 调用父类的toString()
+            }
+        }
+        let cPoint = new ColorPoint(3,4,"red");
+        console.log(cPoint,cPoint.toString());
+        console.log(Object.getPrototypeOf(ColorPoint));
     </script>
 </body>
 </html>
