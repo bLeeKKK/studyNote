@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>draggable拖拽</title>
+    <style>
+        #demo{
+            height: 100px;
+            width: 100px;
+            background-color: #0ff;
+        }
+        .warper{
+            height: 300px;
+            width: 300px;
+            border: 1px solid #f0f;
+        }
+    </style>
+</head>
+<body>
+    <div draggable="true" id="demo"></div>
+    <div class="warper"></div>
+    <script>
+        let demo = document.getElementById("demo");
+        // 拖拽事件
+        demo.ondragstart = (e)=>{ //开始
+            e.dataTransfer.setData("str" , "传递信息"); //设置传递的值
+            console.log(e)
+        }
+        // demo.ondrag = (e)=>{//中
+        //     console.log(e)
+        // }
+        // demo.ondragend = (e)=>{//结束
+        //     console.log(e)
+        // }
+
+        // 释放区事件
+        let warper = document.getElementsByClassName("warper")[0];
+        warper.ondragenter = (e)=>{ //进入该区域 触发
+            console.log("ondragenter",e.dataTransfer.getData('str'))
+        }
+        warper.ondragover = (e)=>{  //在区域内部 触发
+            e.preventDefault(); // 想触发drop事件 需要在这里取消的默认事件
+            console.log("over")
+            console.log("over",e.dataTransfer.getData('str'))
+        }
+        warper.ondragleave = (e)=>{//离开该区域 触发
+            console.log("leave");
+            console.log("leave",e.dataTransfer.getData('str'))
+        }
+        warper.ondrop = (e)=>{//放下 触发
+            console.log("drop",
+                        e.dataTransfer.getData('str'), //获取传递的某个数据value
+                        e.dataTransfer.files,          //获取传递的文件
+                        e.dataTransfer.types)          //获取传递的字符的key
+            return false;
+        }
+    </script>
+</body>
+</html>
