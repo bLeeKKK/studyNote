@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>dom</title>
+</head>
+<body>
+    <script>
+         // 原型链
+        // document 继承于 HTMLDocument 继承于 Document 继承于 最初是的 Node 的构造函数的 Node.prototype
+        // document 继承自
+        console.log(Node,Document,HTMLDocument,document);
+
+        // 文本节点继承自
+        console.log(Node,CharacterData,Text);
+
+        // 注释节点继承自
+        console.log(Node,CharacterData,Comment);
+
+        // 文档中的元素
+        console.log(Node,Element,HTMLElement);
+        console.log(Node,Element,HTMLElement,HTMLHeadElement);  //针对header标签的构造
+        console.log(Node,Element,HTMLElement,HTMLBodyElement);  //针对body标签的构造
+        console.log(Node,Element,HTMLElement,HTMLTitleElement); //针对title标签的构造
+        // 等等等。。。。
+
+        // getElementById 是定义在 Document.prototype 上的方法
+        // getElementsByName 是定义在 HTMLElement.prototype 上的方法
+        // getElementsByTagName 和 getElementsByClassName 是定义在 Document.prototype 和 Element.prototype 上的方法
+
+        // HTMLElement.prototype上的定义了 body 和 head 属性
+        // 可以用 document.bady ， document.head ，document.documentElement来获取 <body> <header> <html> 标签
+       
+    </script>
+</body>
+</html>
