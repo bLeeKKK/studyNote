@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Object.defineProperty</title>
+</head>
+<body>
+    <script>
+        // Object.defineProperty()
+        // 功能:
+        // 方法会直接在一个对象上定义一个新属性，或者修改一个对象的现有属性， 并返回这个对象。如果不指定configurable, writable, enumerable ，则这些属性默认值为false，如果不指定value, get, set，则这些属性默认值为undefined
+
+        // 语法: Object.defineProperty(obj, prop, descriptor)
+        // obj: 需要被操作的目标对象
+        // prop: 目标对象需要定义或修改的属性的名称
+        // descriptor: 将被定义或修改的属性的描述符
+
+        // var obj = new Object();
+
+        // Object.defineProperty(obj, 'name', {
+        //     configurable: false,
+        //     writable: true,
+        //     enumerable: true,
+        //     value: '张三'
+        // })
+
+        // console.log(obj.name)  //张三
+
+        let obj = {};
+        Object.defineProperty(obj, "a",{
+            // 数据描述符和存取描述符均具有
+            configurable: false,    //能否删除该属性，以及除value和writable特性外的其他特性（enumerable，get，set）是否可以被修改      （默认为 false）
+            enumerable: false,      //能否枚举                 （默认为 false）
+
+            // 数据描述符（和(get,set)不能同时存在）
+            // writable: true,         //能否对 value 进行赋值运算 （默认为 false）
+            // value: 1,               //能为任何有效值            （默认为 undefind）      
+
+            // 存取描述符（和(writable,value)不能同时存在）
+            get: function(val){
+                return 999
+            },                               //（默认为 undefind）
+            set: function(val){
+                console.log(888)
+            },                               //（默认为 undefind）
+        })
+        // Object.defineProperty(obj, "b",{
+        //     // configurable: true,
+        //     // enumerable: true,
+        //     // writable: true,
+        //     value: 2,
+        // })
+        obj.a = 1
+        console.log(obj.a)
+
+
+
+
+
+        //字面量定义对象的时候
+        var o = {};
+        o.a = 1;
+        // 等同于 :
+        // Object.defineProperty(o, "a", {
+        //     value : 1,
+        //     writable : true,
+        //     configurable : true,
+        //     enumerable : true
+        // });
+        // 另一方面，
+        // Object.defineProperty(o, "a", { value : 1 });
+        // // 等同于 :
+        // Object.defineProperty(o, "a", {
+        //     value : 1,
+        //     writable : false,
+        //     configurable : false,
+        //     enumerable : false
+        // });
+
+        Object.defineProperties(o, {
+            'property1': {
+                value: true,
+                writable: true
+            },
+            'property2': {
+                value: 'Hello',
+                writable: false
+            }
+        })    // defineProperty同时进行多个属性的设置
+
+        console.log(o)
+        console.log(Object.getOwnPropertyDescriptor(o, "a")) //获取该属性的 defineProperty 描述值
+        console.log(Object.getOwnPropertyDescriptors(o)) //同时获取多个属性的 defineProperty 描述值
+
+        
+    </script>
+</body>
+</html>
