@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Canvas画布</title>
+    <style>
+        canvas{
+            width: 300px;
+            height: 300px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <canvas width="300" id="cans" height="300"></canvas>
+
+    <script>
+        // 获取canvas元素
+        let oCans = document.getElementsByTagName("canvas")[0];
+
+        // 创建canvas元素的画笔
+        let ctx = oCans.getContext("2d");
+
+        // 画笔起始点
+        ctx.moveTo( 100, 100);
+        
+        // 画一条直线（准备怎么画）
+        ctx.lineTo( 200, 200);
+        ctx.lineTo( 200, 300);
+        
+        // 画：描边
+        ctx.stroke();
+        
+
+
+
+
+
+
+
+        // 另起一条边
+        ctx.beginPath();
+
+        // 设置画笔的属性
+        ctx.lineWidth = 10;
+        ctx.strokeStyle = "green"
+
+        ctx.moveTo( 100, 100);
+        ctx.lineTo( 50, 50);
+        ctx.lineTo( 200, 100);
+
+        // 闭合
+        ctx.closePath();
+        // 画：填充
+        ctx.fill();
+        // ctx.stroke();
+
+
+
+
+
+
+        // 画矩形 ctx.rect(X(左上角),Y(左上角),宽,高)
+        ctx.beginPath();
+        ctx.rect(10,10,10,100);
+        ctx.lineWidth = 1;
+        ctx.stroke();
+
+        // 橡皮檫 ctx.clearRect(X(左上角),Y(左上角),宽,高)
+        ctx.clearRect(0,0,300,300);
+
+
+
+
+
+        // 矩形落地 demo
+        // ctx.fillRect(100 ,10 ,50 ,50);
+        // let y = 10;
+        // let timer = setInterval(()=>{
+        //     ctx.clearRect(0,0,300,300);
+        //     ctx.fillRect(100 , y ,50 ,50);
+        //     y += 10;
+        //     if(y > 250){
+        //         clearInterval(timer);
+        //     }
+        // },100)
+
+
+
+
+
+
+        // 绘制弧形 ( X(圆心), Y(圆心), 半径, 弧度开始 , 弧度结束 , 0或1 表示顺时针逆时针)
+        ctx.beginPath()
+        ctx.arc(100 , 100 ,50 , 0, Math.PI * 2, 0)
+        ctx.stroke();
+        ctx.clearRect(0,0,300,300);
+
+        // 画圆角
+        ctx.beginPath();
+        ctx.moveTo( 100, 100);
+        // ctx.arcTo(x1,y1,x2,y2 ,半径) 和当前画笔位置连成一个三角 中的相切的圆
+        ctx.arcTo( 100, 200, 200, 200, 10);
+        ctx.arcTo( 200, 200, 200, 100, 20);
+        ctx.stroke();
+    </script>
+</body>
+</html>
