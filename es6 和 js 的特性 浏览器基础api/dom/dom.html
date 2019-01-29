@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>dom</title>
+</head>
+<body>
+    <div>
+        <p>
+            <span>
+                <i></i>
+            </span>
+        </p>
+        <span></span>
+        <i></i>
+    </div>
+    <script>
+         // 原型链
+        // document 继承于 HTMLDocument 继承于 Document 继承于 最初是的 Node 的构造函数的 Node.prototype
+        // document 继承自
+        console.log(Node,Document,HTMLDocument,document);
+
+        // 文本节点继承自
+        console.log(Node,CharacterData,Text);
+
+        // 注释节点继承自
+        console.log(Node,CharacterData,Comment);
+
+        // 文档中的元素
+        console.log(Node,Element,HTMLElement);
+        console.log(Node,Element,HTMLElement,HTMLHeadElement); //针对header标签的构造
+        console.log(Node,Element,HTMLElement,HTMLBodyElement); //针对body标签的构造
+        console.log(Node,Element,HTMLElement,HTMLTitleElement); //针对title标签的构造
+        // 等等等。。。。
+
+        // getElementById 是定义在 Document.prototype 上的方法
+        // getElementsByName 是定义在 HTMLElement.prototype 上的方法
+        // getElementsByTagName 和 getElementsByClassName 是定义在 Document.prototype 和 Element.prototype 上的方法
+
+        // HTMLElement.prototype上的定义了 body 和 head 属性
+        // 可以用 document.bady ， document.head ，document.documentElement来获取 <body> <header> <html> 标签
+       
+
+        Element.prototype.myChildren = function(){
+            // document.getElementsByTagName("div")[0];
+            let child = this.childNodes;
+            for(let item of child){
+                console.log(item.nodeType)
+                if(item.nodeType === 1){
+                    console.log(item)
+                    console.log(item.nextSibling)               //下一个兄弟节点
+                    console.log(item.nextElementSibling);       //下一个元素兄弟节点
+                    console.log(item.previousElementSibling);   //上一个元素兄弟节点
+                }
+            }
+        };
+        document.getElementsByTagName("div")[0].myChildren();
+
+        // 创建
+        // 创建一个元素节点
+        document.createElement('div');
+        // 创建文本节点
+        document.createTextNode("天上天下");
+        // 创建注释节点
+        document.createComment("注释")
+
+        // 插入
+        // 插入子节点
+        document.getElementsByTagName("div")[0].appendChild(document.createElement('div'));
+        // 节点 A 在节点 B 之前
+        // document.getElementsByTagName("div")[0].insertBefore(A,B);
+
+        // 删除
+        // document.getElementsByTagName("div")[0].removeChild();  //通过父级删除  （剪切，返回当前元素）
+        // document.getElementsByTagName("div")[0].remove()        //删除自己      （直接删除）
+
+        // 替换 A 替换 B
+        // document.getElementsByTagName("div")[0].replaceChild(A,B)
+
+        // 设置属性
+        document.getElementsByTagName("div")[0].setAttribute('class','gogogo!');
+        console.log(document.getElementsByTagName("div")[0].getAttribute("class"));
+    </script>
+</body>
+</html>
