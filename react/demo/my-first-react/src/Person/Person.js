@@ -3,7 +3,10 @@ import "./Person.css";
 const person = ( props )=>{
     // props 可以为任何名字
     const style = {
-        backgroundColor: "rgb(179, 119, 119)"
+        backgroundColor: "rgb(179, 119, 119)",
+        width: "80vw",
+        height: '100px',
+        boxShadow: "1px 1px 10px #000",
     }
 
     return (

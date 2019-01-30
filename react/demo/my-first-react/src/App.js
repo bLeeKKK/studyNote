@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Person from "./Person/Person"
+import person from './Person/Person';
 
 class App extends Component {
   /** 
@@ -15,6 +16,7 @@ class App extends Component {
       {name:"lee",count:2},
       {name:"liu",count:3},
     ],
+    showBox : false,
   }
 
   chData = (count)=>{
@@ -30,39 +32,70 @@ class App extends Component {
     console.log(99)
   }
 
-  nameChangHanld = (event)=>{
+  nameChangHanld = (event,index)=>{
+    console.log(event,index)
+    let persons = this.state.persons
+
+    persons[index].name = event.target.value
+
     this.setState({
-      persons: [
-        {name: event.target.value,count:10},
-        {name:"lee",count:2},
-        {name:"liu",count:3},
-      ],
+      persons
     }) 
   }
+
+  toggleShow = ()=>{
+    let bool = this.state.showBox;
+    this.setState({showBox:!bool});
+  }
   
+ 
   // 不使用 JSX 语法来进行渲染 写法比较麻烦
   // render(){
   //   return React.createElement('div',{className:"App"},React.createElement('h1',null,"hello world"))
   // }
 
   render() {
+    let persons = null;
+    if(this.state.showBox){
+      persons = <div>
+                  <button onClick={() => this.chData(50000000000000000)}>增加</button>
+
+                  {
+                    this.state.persons.map((person,index) => {
+                      return <Person  count = {person.count}
+                                      key = {index}
+                                      name = {person.name}
+                                      myClick = {() => this.chData(50000000000000000)}
+                                      changed = {(event)=>this.nameChangHanld(event,index)}/>
+                    }) 
+                  }
+                  {/* [<Person count={this.state.persons[1].count} name={this.state.persons[1].name} />,
+                  <Person count={this.state.persons[1].count} name={this.state.persons[1].name} />,
+                  <Person count={this.state.persons[1].count} name={this.state.persons[1].name} />,
+                  <Person count={this.state.persons[1].count} name={this.state.persons[1].name} />] */}
+                  {/* <Person count = {this.state.persons[0].count} 
+                              name = {this.state.persons[0].name}
+                              myClick = {() => this.chData(50000000000000000)}
+                              changed = {this.nameChangHanld} />
+                  <Person count={this.state.persons[1].count} name={this.state.persons[1].name} />
+                  <Person count={this.state.persons[2].count} name={this.state.persons[2].name} />
+                  <Person>
+                    中间内容
+                  </Person> */}
+                  <input/> 
+              </div>
+    }
     return (
       // JSX语法
       <div className="App">
           <h1>
             hello React
           </h1>
-          <button onClick={() => this.chData(50000000000000000)}>增加</button>
-          <Person count = {this.state.persons[0].count} 
-                  name = {this.state.persons[0].name}
-                  myClick = {() => this.chData(50000000000000000)}
-                  changed = {this.nameChangHanld} />
-          <Person count={this.state.persons[1].count} name={this.state.persons[1].name} />
-          <Person count={this.state.persons[2].count} name={this.state.persons[2].name} />
-          <Person>
-            中间内容
-          </Person>
-          <input/>
+          <button onClick={this.toggleShow}>内容切换</button>
+          {
+            persons
+          }
+          
       </div>
     );
   }
