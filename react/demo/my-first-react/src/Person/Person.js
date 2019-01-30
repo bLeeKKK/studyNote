@@ -1,13 +1,14 @@
 import React from "react";
-import "./Person.css"
+import "./Person.css";
 const person = ( props )=>{
+    // props 可以为任何名字
     return (
         <div className="Person">
-            <p>你好，我是{props.name}我有{props.count}</p>
+            <p onClick={props.myClick}>{props.name?props.name:"默认"}的Person组件 第{props.count?props.count:"默认"}个</p>
             <p>
                 {props.children}
             </p>
-            <p onClick={props.myclick}>改变</p>
+            <input onChange={props.changed} defaultValue={props.name}/>
         </div>
     )
 };

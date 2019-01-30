@@ -3,61 +3,66 @@ import './App.css';
 import Person from "./Person/Person"
 
 class App extends Component {
-  /*
-    state: 用于改变组件内容状态的值（动态）
-    props: 用于组件通信进行传值 
-    setState： 使用 this.setState 对state进行设定
-  */
+  /** 
+   * state当前数据
+   * 属性传值
+   * */ 
+
 
   state = {
     persons: [
-      { name: "lb", count: 9},
-      { name: "jjh", count: 90},
-      { name: "sf", count: 89},
+      {name:"Henry",count:5},
+      {name:"lee",count:2},
+      {name:"liu",count:3},
     ],
-    otherState: 'anyThing'
   }
 
-  switchData = (newName)=>{
-    // this.state.persons[0].name = "lbbb" 不要直接修改状态
-
-    // 使用这个方法修改
-
-    console.log(newName)
-
+  chData = (count)=>{
+    // this.state.persons[0].name = "我变了~~~"
+    // 不能进行直接修改
     this.setState({
       persons: [
-        { name: "lbbbbbb", count: 9},
-        { name: "jjh", count: 20},
-        { name: "sf", count: 3},
-      ], 
+        {name:"我变了！！！！~",count:count},
+        {name:"lee",count:2},
+        {name:"liu",count:3},
+      ],
     })
+    console.log(99)
+  }
+
+  nameChangHanld = (event)=>{
+    this.setState({
+      persons: [
+        {name: event.target.value,count:10},
+        {name:"lee",count:2},
+        {name:"liu",count:3},
+      ],
+    }) 
   }
   
+  // 不使用 JSX 语法来进行渲染 写法比较麻烦
+  // render(){
+  //   return React.createElement('div',{className:"App"},React.createElement('h1',null,"hello world"))
+  // }
 
   render() {
-    const style = {
-      backgroundColor: "yellow",
-    };
     return (
+      // JSX语法
       <div className="App">
-        <Person name="lb" count="20" />
-        <Person name="sq" count="30" ></Person>
-        <Person name="as" count="40" >孩子</Person>
-
-        <button onClick={this.switchData}>按钮</button>
-
-        {/* 点击事件中传参数的两种方法 */}
-        <button onClick={()=>this.switchData('newname')}>按钮</button>
-        <button style={style} onCli ck={this.switchData.bind(this,'newNAme')}>按钮</button>
-
-        <Person myclick={this.switchData.bind(this,'ssss')}
-                name={this.state.persons[0].name} 
-                count={this.state.persons[0].count}  />
-        <Person name={this.state.persons[1].name} count={this.state.persons[1].count}  />
-        <Person name={this.state.persons[2].name} count={this.state.persons[2].count}  />
-
-        <Person />
+          <h1>
+            hello React
+          </h1>
+          <button onClick={() => this.chData(50000000000000000)}>增加</button>
+          <Person count = {this.state.persons[0].count} 
+                  name = {this.state.persons[0].name}
+                  myClick = {() => this.chData(50000000000000000)}
+                  changed = {this.nameChangHanld} />
+          <Person count={this.state.persons[1].count} name={this.state.persons[1].name} />
+          <Person count={this.state.persons[2].count} name={this.state.persons[2].name} />
+          <Person>
+            中间内容
+          </Person>
+          <input/>
       </div>
     );
   }
