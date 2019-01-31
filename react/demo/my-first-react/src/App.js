@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Person from "./Person/Person"
-import person from './Person/Person';
+// import person from './Person/Person';
 
 class App extends Component {
   /** 
@@ -94,8 +94,7 @@ class App extends Component {
           <button onClick={this.toggleShow}>内容切换</button>
           {
             persons
-          }
-          
+          } 
       </div>
     );
   }
