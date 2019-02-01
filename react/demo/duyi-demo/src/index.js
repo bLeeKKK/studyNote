@@ -1,84 +1,137 @@
 //=================================================================================================
-// // class_4 （组件化）
-// import React,{Fragment} from "react";
+// //class_7 (组件间交互)
 import React from "react";
 import { render } from "react-dom";
-// 函数组件
-import Taglist from "./components/Taglist/Taglist";
-// class 类组件
-import Todolist from "./components/Todolist/Todolist";
+import TodoWrapper from "./components/TodoWrapper/TodoWrapper";
 
-const topList = [
-    {
-      id: 0,
-      title: '标题1',
-      new: true,
-      hot: '46人'
-    },
-    {
-      id: 1,
-      title: '标题2',
-      new: true,
-      hot: '44人'
-    },
-    {
-      id: 2,
-      title: '标题3',
-      new: false,
-      hot: '35人'
-    },
-    {
-      id: 3,
-      title: '标题4',
-      new: false,
-      hot: '33人'
-    },
-    {
-      id: 4,
-      title: '标题5',
-      new: true,
-      hot: '32人'
-    },
-    {
-      id: 5,
-      title: '标题6',
-      new: false,
-      hot: '25人'
-    },
-    {
-      id: 6,
-      title: '标题7',
-      new: true,
-      hot: '24人'
-    },
-    {
-      id: 7,
-      title: '标题8',
-      new: false,
-      hot: '24人'
-    },
-    {
-      id: 8,
-      title: '标题9',
-      new: false,
-      hot: '22人'
-    },
-    {
-      id: 9,
-      title: '标题10',
-      new: false,
-      hot: '20人'
-    },
-    {
-      id: 10,
-      title: '标题11',
-      new: true,
-      hot: '20人'
-    }
-  ]
+render(<><TodoWrapper /></>,window.root);
 
-//   属性传参数
-render(<><Taglist topList={topList}/> <Todolist /></>,window.root);
+
+
+
+
+
+
+
+
+
+//=================================================================================================
+// // class_6 (属性传递与校验)
+// import React from "react";
+// import { render } from "react-dom";
+
+// import Person from "./components/Person/Person";
+
+
+// const person = {
+//   // name: "lb",
+//   age: 24,
+//   sex: '男',
+//   salary: 100000,
+// }
+// render(<Person name={person.name} age={person.age} sex={person.sex} salary={person.salary}/> , document.getElementById("root"));
+
+
+
+//=================================================================================================
+// // // class_5 （受控组件和非受控组件）
+// import React from "react";
+// import { render } from "react-dom";
+
+// // 受控组件
+// import Control from "./components/Control/Control";
+
+// // 受控组件
+// import UnControl from "./components/UnControl/UnControl";
+
+
+// render(<><Control /> <UnControl /></>,window.root);
+
+
+
+
+
+//=================================================================================================
+// // // class_4 （组件化）
+// // import React,{Fragment} from "react";
+// import React from "react";
+// import { render } from "react-dom";
+// // 函数组件
+// import Taglist from "./components/Taglist/Taglist";
+// // class 类组件
+// import Todolist from "./components/Todolist/Todolist";
+
+// const topList = [
+//     {
+//       id: 0,
+//       title: '标题1',
+//       new: true,
+//       hot: '46人'
+//     },
+//     {
+//       id: 1,
+//       title: '标题2',
+//       new: true,
+//       hot: '44人'
+//     },
+//     {
+//       id: 2,
+//       title: '标题3',
+//       new: false,
+//       hot: '35人'
+//     },
+//     {
+//       id: 3,
+//       title: '标题4',
+//       new: false,
+//       hot: '33人'
+//     },
+//     {
+//       id: 4,
+//       title: '标题5',
+//       new: true,
+//       hot: '32人'
+//     },
+//     {
+//       id: 5,
+//       title: '标题6',
+//       new: false,
+//       hot: '25人'
+//     },
+//     {
+//       id: 6,
+//       title: '标题7',
+//       new: true,
+//       hot: '24人'
+//     },
+//     {
+//       id: 7,
+//       title: '标题8',
+//       new: false,
+//       hot: '24人'
+//     },
+//     {
+//       id: 8,
+//       title: '标题9',
+//       new: false,
+//       hot: '22人'
+//     },
+//     {
+//       id: 9,
+//       title: '标题10',
+//       new: false,
+//       hot: '20人'
+//     },
+//     {
+//       id: 10,
+//       title: '标题11',
+//       new: true,
+//       hot: '20人'
+//     }
+//   ]
+
+// //   属性传参数
+// render(<><Taglist topList={topList}/> <Todolist /></>,window.root);
 
 
 

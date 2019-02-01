@@ -8,51 +8,143 @@
 </head>
 <body>
     <script>
-        class Point {
-            constructor(x, y) {
-                this.x = x;
-                this.y = y;
-                // return {x,y};
-            }
+        // ===========================================================================================
+        // 阮一峰 ES6 文章
+        // class Point {
+        //     constructor(x, y) {
+        //         this.x = x;
+        //         this.y = y;
+        //         // return {x,y};
+        //     }
             
-            toString() {
-                return '(' + this.x + ', ' + this.y + ')';
-            }
+        //     toString() {
+        //         return '(' + this.x + ', ' + this.y + ')';
+        //     }
 
-            // 定义静态方法
-            static classMethod() {
-                return '(' + this.x + ', ' + this.y + ')';
-            }
+        //     // 定义静态方法
+        //     static classMethod() {
+        //         return '(' + this.x + ', ' + this.y + ')';
+        //     }
 
-            get prop(){
-                console.log("这是get");
-                return "这是get"
+        //     get prop(){
+        //         console.log("这是get");
+        //         return "这是get"
+        //     }
+        //     set prop(val){
+        //         console.log("这是set:" + val);
+        //         return "这是set"
+        //     }
+        // }
+        // let point = new Point(1,2);
+        // console.log(point) 
+        // console.log(point instanceof Point) //point 的构造函数是否为 Point;
+
+        // // 继承extends 父类的关键字super
+        // class ColorPoint extends Point {
+        //     constructor(x, y, color) {
+        //         // 必须调用 super ！！！！！！！！
+        //         // 只有调用super之后，才可以使用this关键字
+        //         super(x, y);             // 调用父类的constructor(x, y)
+        //         this.color = color;
+        //     }
+
+        //     toString() {
+        //         return this.color + ' ' + super.toString(); // 调用父类的toString()
+        //     }
+        // }
+        // let cPoint = new ColorPoint(3,4,"red");
+        // console.log(cPoint,cPoint.toString());
+        // console.log(Object.getPrototypeOf(ColorPoint));
+
+
+
+
+
+
+
+
+
+
+
+        // ===========================================================================================
+        // 渡一
+        // class Plane {
+        //     // 静态属性 （函数(Plane)上的属性，注：非原型）
+        //     static alive(){
+        //         return true
+        //     }
+
+        //     constructor (name) {
+        //         // 私有属性 （构造对象的私有属性）
+        //         this.name = name || "普通飞机";
+        //         this.boold = 100;
+        //     }
+
+        //     // 共有属性 （原型上的）
+        //     fly(){
+        //         console.log(`${this.name}在飞`)
+        //     }
+        // }
+        // let oPlan = new Plane()
+
+        // // 继承
+        // class AtckPlane extends Plane {
+        //     constructor () {
+        //         super('攻击机');
+        //         this.gun = 'ak47'
+        //     }
+        // }
+        // // 父类的静态方法也会被子类继承
+        // // AtckPlane.alive()
+        // let atckPlan = new AtckPlane();
+        // console.log(Object.getOwnPropertyDescriptors(Plane.prototype))
+
+
+
+
+
+
+
+
+
+
+
+        // ===========================================================================================
+        // 渡一（class 新ES7，注：提案阶段）
+        class Search {
+            // ES7 提案语法
+            // 处理提案中的 es 语法的插件 @babel/pulgin-proposal-class-properties 
+            // 新的 ES7 静态属性定义方式;
+            // static num = 6;
+
+            // 新的 ES7 私有属性定义方式;
+            // num = 6;
+
+            // 装饰器 @decorator 定义在外面的 myFun 将会执行
+            // @myFun
+
+
+            // ES6
+            static num () {
+                return 6
             }
-            set prop(val){
-                console.log("这是set:" + val);
-                return "这是set"
+            constructor () {
+                this.keyValue = '11';
+            }
+            getCount () {
+                console.log('发送请求');
             }
         }
-        let point = new Point(1,2);
-        console.log(point) 
-        console.log(point instanceof Point) //point 的构造函数是否为 Point;
-
-        // 继承extends 父类的关键字super
-        class ColorPoint extends Point {
-            constructor(x, y, color) {
-                // 必须调用 super ！！！！！！！！
-                // 只有调用super之后，才可以使用this关键字
-                super(x, y);             // 调用父类的constructor(x, y)
-                this.color = color;
-            }
-
-            toString() {
-                return this.color + ' ' + super.toString(); // 调用父类的toString()
-            }
+        // 装饰器
+        // @decorator
+        function myFun( proto, key, decorator){
+            // proto 原型
+            // key 属性
+            // decorator 描述
         }
-        let cPoint = new ColorPoint(3,4,"red");
-        console.log(cPoint,cPoint.toString());
-        console.log(Object.getPrototypeOf(ColorPoint));
+
+        
+        let os = new Search()
     </script>
 </body>
 </html>
