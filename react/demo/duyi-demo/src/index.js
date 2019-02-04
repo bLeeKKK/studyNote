@@ -1,18 +1,24 @@
 //=================================================================================================
-// //class_7 (组件间交互)
+// //class_8 (生命周期)
 import React from "react";
 import { render } from "react-dom";
-import TodoWrapper from "./components/TodoWrapper/TodoWrapper";
 
-render(<><TodoWrapper /></>,window.root);
+import LifeCycle from "./components/LifeCycle/LifeCycle";
 
-
-
+render( <LifeCycle />, window.root);
 
 
 
 
 
+
+//=================================================================================================
+// //class_7 (组件间交互)
+// import React from "react";
+// import { render } from "react-dom";
+// import TodoWrapper from "./components/TodoWrapper/TodoWrapper";
+
+// render(<><TodoWrapper /></>,window.root);
 
 
 //=================================================================================================
