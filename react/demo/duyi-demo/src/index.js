@@ -1,11 +1,239 @@
+// //=================================================================================================
+// class_13 (customLink)
+// 详情在 Activities 组件中
+import React from 'react';
+import { render } from 'react-dom';
+
+import { BrowserRouter as Router,
+         Route,
+         Switch,    //只匹配一个路由
+         Redirect,  //重定向
+        } from 'react-router-dom'
+
+// 命令：npm install react-router-dom 安装路由
+// 路由分两种 哈西路由(HashRouter) 和 浏览器路由(BrowserRouter)
+import Home from './pages/Home'
+import Activities from './pages/Activities'
+import Topics from './pages/Topics'
+import Login from './pages/Login'
+import Wenzhang from './pages/Wenzhang'
+import './pages/nav.css'
+
+// 二级路由
+import App from './App'
+
+render( <Router>
+        <App { ...{ a: "对象方式传属性~"} } >
+            <div className="content">
+                <Switch>
+                    {/* exact = { true } 默认值是true，属性严格匹配，包含关系不行 */}
+                    <Route path='/' exact={ true } component = { Home }/>
+                    <Route path='/activities' component = { Activities }/>
+                    <Route path='/topics' component = { Topics }/>
+                    <Route path='/login' component = { Login }/>
+                    <Route path='/Wenzhang/:id' component = { Wenzhang }/>
+                    {/* Redirect 重定向 */}
+                    <Redirect to='/'></Redirect>
+                </Switch>
+            </div>
+        </App>
+        </Router>, window.root);
+
+
+
+
+
+
+// // //=================================================================================================
+// // class_12 (widthRouter)
+// // 详情在 Nav 组件中
+// import React from 'react';
+// import { render } from 'react-dom';
+
+// import { BrowserRouter as Router,
+//          Route,
+//          Switch,    //只匹配一个路由
+//          Redirect,  //重定向
+//         } from 'react-router-dom'
+
+// // 命令：npm install react-router-dom 安装路由
+// // 路由分两种 哈西路由(HashRouter) 和 浏览器路由(BrowserRouter)
+// import Home from './pages/Home'
+// import Activities from './pages/Activities'
+// import Topics from './pages/Topics'
+// import Login from './pages/Login'
+// import Wenzhang from './pages/Wenzhang'
+// import './pages/nav.css'
+
+// // 二级路由
+// import App from './App'
+
+// render( <Router>
+//         <App { ...{ a: "对象方式传属性~"} } >
+//             <div className="content">
+//                 <Switch>
+//                     {/* exact = { true } 默认值是true，属性严格匹配，包含关系不行 */}
+//                     <Route path='/' exact={ true } component = { Home }/>
+//                     <Route path='/activities' component = { Activities }/>
+//                     <Route path='/topics' component = { Topics }/>
+//                     <Route path='/login' component = { Login }/>
+//                     <Route path='/Wenzhang/:id' component = { Wenzhang }/>
+//                     {/* Redirect 重定向 */}
+//                     <Redirect to='/'></Redirect>
+//                 </Switch>
+//             </div>
+//         </App>
+//         </Router>, window.root);
+
+
+
+
+
+// //=================================================================================================
+// // // //class_11 (动态路由)
+// import React from 'react';
+// import { render } from 'react-dom';
+
+// import { BrowserRouter as Router,
+//          Route,
+//          Switch,    //只匹配一个路由
+//          Redirect,  //重定向
+//         } from 'react-router-dom'
+
+// // 命令：npm install react-router-dom 安装路由
+// // 路由分两种 哈西路由(HashRouter) 和 浏览器路由(BrowserRouter)
+// import Home from './pages/Home'
+// import Activities from './pages/Activities'
+// import Topics from './pages/Topics'
+// import Login from './pages/Login'
+// import Wenzhang from './pages/Wenzhang'
+// import './pages/nav.css'
+
+// // 二级路由
+// import App from './App'
+
+// render( <Router>
+//         <App>
+//             <div className="content">
+//                 <Switch>
+//                     {/* exact = { true } 默认值是true，属性严格匹配，包含关系不行 */}
+//                     <Route path='/' exact={ true } component = { Home }/>
+//                     <Route path='/activities' component = { Activities }/>
+//                     <Route path='/topics' component = { Topics }/>
+//                     <Route path='/login' component = { Login }/>
+//                     <Route path='/Wenzhang/:id' component = { Wenzhang }/>
+//                     {/* Redirect 重定向 */}
+//                     <Redirect to='/'></Redirect>
+//                 </Switch>
+//             </div>
+//         </App>
+//         </Router>, window.root);
+
+
+
+
+
+
+// //=================================================================================================
+// // //class_10 (二级路由)
+// import React from 'react';
+// import { render } from 'react-dom';
+
+// import { BrowserRouter as Router,
+//          Route,
+//          Switch,    //只匹配一个路由
+//          Redirect,  //重定向
+//         } from 'react-router-dom'
+
+// // 命令：npm install react-router-dom 安装路由
+// // 路由分两种 哈西路由(HashRouter) 和 浏览器路由(BrowserRouter)
+// import Home from './pages/Home'
+// import Activities from './pages/Activities'
+// import Topics from './pages/Topics'
+// import Login from './pages/Login'
+// import './pages/nav.css'
+
+// // 二级路由
+// import App from './App'
+
+// render( <Router>
+//         <App>
+//             <div className="content">
+//                 <Switch>
+//                     {/* exact = { true } 默认值是true，属性严格匹配，包含关系不行 */}
+//                     <Route path='/' exact={ true } component = { Home }/>
+//                     <Route path='/activities' component = { Activities }/>
+//                     <Route path='/topics' component = { Topics }/>
+//                     <Route path='/login' component = { Login }/>
+//                     {/* Redirect 重定向 */}
+//                     <Redirect to='/'></Redirect>
+//                 </Switch>
+//             </div>
+//         </App>
+//         </Router>, window.root);
+
+
+
+
+// //=================================================================================================
+// // //class_9 (路由)
+// import React from 'react';
+// import { render } from 'react-dom';
+
+// import { BrowserRouter as Router,
+//          Route,
+//          Switch,    //只匹配一个路由
+//          Redirect,  //重定向
+//          Link,      //负责跳转
+//          NavLink,   //有标识的 负责跳转
+//         } from 'react-router-dom'
+
+// // 命令：npm install react-router-dom 安装路由
+// // 路由分两种 哈西路由(HashRouter) 和 浏览器路由(BrowserRouter)
+// import Home from './pages/Home'
+// import Activities from './pages/Activities'
+// import Topics from './pages/Topics'
+// import Login from './pages/Login'
+// import './pages/nav.css'
+
+
+// render( <Router>
+//             {/* <Switch></Switch> 组件遇到一个合适的就不再向下匹配了  */}
+//             <>
+//                 <div className="nav">
+//                     {/* <Link to="/">首页</Link>
+//                         <Link to="/activities">动态</Link>
+//                         <Link to="/topics">话题</Link>
+//                         <Link to="/login">登录</Link> */}
+//                     <NavLink to="/"  exact>首页</NavLink>
+//                     <NavLink to="/activities">动态</NavLink>
+//                     <NavLink to="/topics">话题</NavLink>
+//                     <NavLink to="/login">登录</NavLink>
+//                 </div>
+
+//                 <div className="content">
+//                     <Switch>
+//                         {/* exact = { true } 默认值是true，属性严格匹配，包含关系不行 */}
+//                         <Route path='/' exact={ true } component = { Home }/>
+//                         <Route path='/activities' component = { Activities }/>
+//                         <Route path='/topics' component = { Topics }/>
+//                         <Route path='/login' component = { Login }/>
+//                         {/* Redirect 重定向 */}
+//                         <Redirect to='/'></Redirect>
+//                     </Switch>
+//                 </div>
+//             </>
+//         </Router>, window.root);
+
+
 //=================================================================================================
 // //class_8 (生命周期)
-import React from "react";
-import { render } from "react-dom";
+// import React from "react";
+// import { render } from "react-dom";
 
-import LifeCycle from "./components/LifeCycle/LifeCycle";
+// import LifeCycle from "./components/LifeCycle/LifeCycle";
 
-render( <LifeCycle />, window.root);
+// render( <LifeCycle />, window.root);
 
 
 
