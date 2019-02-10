@@ -1,46 +1,119 @@
-// //=================================================================================================
-// class_13 (customLink)
-// 详情在 Activities 组件中
+//=================================================================================================
+// 先安装 redux 
+// 命令: npm install redux
+
 import React from 'react';
 import { render } from 'react-dom';
+import TodoList from './redux/TodoList'
 
-import { BrowserRouter as Router,
-         Route,
-         Switch,    //只匹配一个路由
-         Redirect,  //重定向
-        } from 'react-router-dom'
-
-// 命令：npm install react-router-dom 安装路由
-// 路由分两种 哈西路由(HashRouter) 和 浏览器路由(BrowserRouter)
-import Home from './pages/Home'
-import Activities from './pages/Activities'
-import Topics from './pages/Topics'
-import Login from './pages/Login'
-import Wenzhang from './pages/Wenzhang'
-import './pages/nav.css'
-
-// 二级路由
-import App from './App'
-
-render( <Router>
-        <App { ...{ a: "对象方式传属性~"} } >
-            <div className="content">
-                <Switch>
-                    {/* exact = { true } 默认值是true，属性严格匹配，包含关系不行 */}
-                    <Route path='/' exact={ true } component = { Home }/>
-                    <Route path='/activities' component = { Activities }/>
-                    <Route path='/topics' component = { Topics }/>
-                    <Route path='/login' component = { Login }/>
-                    <Route path='/Wenzhang/:id' component = { Wenzhang }/>
-                    {/* Redirect 重定向 */}
-                    <Redirect to='/'></Redirect>
-                </Switch>
-            </div>
-        </App>
-        </Router>, window.root);
+render(<TodoList />,window.root)
 
 
 
+
+
+// // //=================================================================================================
+// // class_13_2 (customLink)
+// // 详情在 Activities 组件中
+// import React from 'react';
+// import { render } from 'react-dom';
+
+// import { BrowserRouter as Router,
+//          Route,
+//          Switch,    //只匹配一个路由
+//          Redirect,  //重定向
+//         } from 'react-router-dom'
+
+// // 命令：npm install react-router-dom 安装路由
+// // 路由分两种 哈西路由(HashRouter) 和 浏览器路由(BrowserRouter)
+// import Home from './pages/Home'
+// import Activities from './pages/Activities'
+// import Topics from './pages/Topics'
+// import Login from './pages/Login'
+// import Wenzhang from './pages/Wenzhang'
+// import './pages/nav.css'
+
+// // 二级路由
+// import App from './App'
+
+// // 输入不存在的页面时显示的页面
+// import NoMatch from './pages/NoMatch/NoMatch'
+
+// render( <Router>
+//         <App { ...{ a: "对象方式传属性~"} } >
+//             <div className="content">
+//                 <Switch>
+//                     {/* exact = { true } 默认值是true，属性严格匹配，包含关系不行 */}
+//                     <Route path='/' exact={ true } component = { Home }/>
+//                     <Route path='/activities' component = { Activities }/>
+//                     <Route path='/topics' component = { Topics }/>
+//                     <Route path='/login' component = { Login }/>
+//                     <Route path='/Wenzhang/:id' component = { Wenzhang }/>
+
+//                     {/* 当不传path时会匹配传入任意一个值 */}
+//                     {/* <Route component = { NoMatch }></Route> */}
+
+//                     {/* Redirect 重定向 */}
+//                     {/* <Redirect to='/'></Redirect> */}
+                    
+//                     <Route path='/erro' component = { NoMatch }></Route>
+//                     <Redirect to='/erro'></Redirect>
+//                 </Switch>
+//             </div>
+//         </App>
+//         </Router>, window.root);
+
+
+// // //=================================================================================================
+// // class_13 (customLink)
+// // 详情在 Activities 组件中
+// import React from 'react';
+// import { render } from 'react-dom';
+
+// import { BrowserRouter as Router,
+//          Route,
+//          Switch,    //只匹配一个路由
+//          Redirect,  //重定向
+//         } from 'react-router-dom'
+
+// // 命令：npm install react-router-dom 安装路由
+// // 路由分两种 哈西路由(HashRouter) 和 浏览器路由(BrowserRouter)
+// import Home from './pages/Home'
+// import Activities from './pages/Activities'
+// import Topics from './pages/Topics'
+// import Login from './pages/Login'
+// import Wenzhang from './pages/Wenzhang'
+// import './pages/nav.css'
+
+// // 二级路由
+// import App from './App'
+
+// // 输入不存在的页面时显示的页面
+// import NoMatch from './pages/NoMatch/NoMatch'
+
+// render( <Router>
+//         <App { ...{ a: "对象方式传属性~"} } >
+//             <div className="content">
+//                 <Switch>
+//                     {/* exact = { true } 默认值是true，属性严格匹配，包含关系不行 */}
+//                     <Route path='/' exact={ true } component = { Home }/>
+//                     <Route path='/activities' component = { Activities }/>
+//                     <Route path='/topics' component = { Topics }/>
+//                     <Route path='/login' component = { Login }/>
+//                     <Route path='/Wenzhang/:id' component = { Wenzhang }/>
+
+//                     {/* 当不传path时会匹配传入任意一个值 */}
+//                     {/* <Route component = { NoMatch }></Route> */}
+
+//                     {/* Redirect 重定向 */}
+//                     {/* <Redirect to='/'></Redirect> */}
+                    
+//                     <Route path='/erro' component = { NoMatch }></Route>
+//                     <Redirect to='/erro'></Redirect>
+//                 </Switch>
+//             </div>
+//         </App>
+//         </Router>, window.root);
 
 
 

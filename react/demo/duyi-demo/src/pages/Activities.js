@@ -14,7 +14,14 @@ class Activities extends React.Component {
                 <>
                     {/* class_13 (customLink) */}
                     {/* <Prompt message="要离开吗？"/> */}
-                    <Prompt message="要离开吗？"/> 
+                    <Prompt message={ (location)=>{
+                        // 进入或是离开会执行这个函数
+                        if(!location.pathname.includes('/activities')){
+                            return window.confirm('确定离开？')
+                        }
+                        // 返回 true 或是 false 控制是否离开
+                        return true;
+                    } }/> 
                     <div>Activities <br/>
                         <NavLink to='/activities/recommended'>推荐</NavLink>
                         <NavLink to='/activities/all'>综合</NavLink>

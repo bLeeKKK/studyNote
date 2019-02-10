@@ -1,5 +1,6 @@
 import React,{ Component } from "react";
 import { NavLink,Route,withRouter } from 'react-router-dom'
+import MuneLink from "../../pages/MuneLink/MuneLink";
 
 // 导出的时候使用这个
 // 变化为一个高阶组件
@@ -16,15 +17,17 @@ class Nav extends Component {
     render () {
         return (<>
                     <div className="nav">
+                        <span onClick = { this.jumpTo }>第一教育</span>
+
                         {/* <Link to="/">首页</Link>
                             <Link to="/activities">动态</Link>
                             <Link to="/topics">话题</Link>
                             <Link to="/login">登录</Link> */}
-                        <span onClick = { this.jumpTo }>第一教育</span>
-                        <NavLink to="/"  exact>首页</NavLink>
-                        <NavLink to="/activities">动态</NavLink>
-                        <NavLink to="/topics">话题</NavLink>
-                        <NavLink to="/login">登录</NavLink>
+                        
+                        <MuneLink to="/"  exact>首页</MuneLink>
+                        <MuneLink to="/activities">动态</MuneLink>
+                        <MuneLink to="/topics">话题</MuneLink>
+                        <MuneLink to="/login">登录</MuneLink>
                     </div> 
                 </>)
     }
