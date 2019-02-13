@@ -1,15 +1,35 @@
 //=================================================================================================
+// class_15 (redux) react-redux 在react中使用redux
 // 先安装 redux 
-// 命令: npm install redux
+// 命令: npm install react-redux --save
 
 import React from 'react';
 import { render } from 'react-dom';
-import TodoList from './redux/TodoList'
+import TodoList from './react-redux/TodoList';
+import Counter from './react-redux/Counter';
 
-render(<TodoList />,window.root)
+// 使用 react-redux
+import { Provider } from 'react-redux';
+import store from './react-redux/store';
+// 使用 Provider 组件包裹，再引用 connect 方法 例：Counter 中
+
+render( <Provider store={ store }>
+            {/* <TodoList />  */}
+            <Counter />
+        </Provider>,window.root)
 
 
+// //=================================================================================================
+// // class_14 (redux) 的基本用法
+// // 先安装 redux 
+// // 命令: npm install redux
 
+// import React from 'react';
+// import { render } from 'react-dom';
+// import TodoList from './redux/TodoList';
+// import Counter from './redux/Counter';
+
+// render(<><TodoList /> <Counter /></>,window.root)
 
 
 // // //=================================================================================================

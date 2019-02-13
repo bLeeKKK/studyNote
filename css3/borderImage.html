@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>borderImage</title>
     <style>
-        body{
+        body {
             background-color: #000;
         }
         .div1{
@@ -29,9 +29,22 @@
             /* 合并写法 */
             /* border-image: url(./img.png) 100 fill repeat; */
         }
+
+        .div2{
+            height: 100px;
+            width: 100px;
+            border: 100px solid #000;
+
+            border-color: #ffc0cb;
+            border-image: url(./img.png) 100 repeat stretch;
+            margin-top: 50px;
+            /* back */
+        }
     </style>
 </head>
 <body>
     <div class="div1"></div>
+
+    <div class="div2"></div>
 </body>
 </html>

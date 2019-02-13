@@ -1,10 +1,8 @@
-import * as Types from './actionTypes'
+import * as Types from '../actionTypes'
 
 const initState = {
     inpVal: "",
     list: [],
-
-    count: 0,
 }
 
 export default (state = initState, action) => {
@@ -22,10 +20,6 @@ export default (state = initState, action) => {
 
         case Types.CHANGE_DEL_LIST:
             newState.list.splice( action.value,1);
-            return newState;
-            
-        case Types.COUNT_ADD:
-            newState.count = action.value;
             return newState;
     }
     return state;

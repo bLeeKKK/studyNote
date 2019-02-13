@@ -13,19 +13,19 @@
             background-color: brown;
         } */
 
-         /* E ~ F */
-         /* 下几个 满足条件的兄弟元素节点 */
-        /* div ~ p{
+        /* E ~ F */
+        /* 下几个 满足条件的兄弟元素节点 */
+        /* div ~ p {
             background-color: brown;
         } */
 
         /* 属性选择器 */
         [data="a"]{
-
+            /* background-color: #0ff; */
         }
         /* 属性选择器属性含有 a 可用空格隔开 */
         [data~="a"]{ 
- 
+            /* background-color: #f0f; */
         }
         /* 选择已  a或者a- 开头 */
         [data|="a"]{ 
@@ -52,6 +52,6 @@
     <p>p2</p>
     <p>p3</p>
 
-    <div data="a"></div>
+    <div data="ccsd a">data=a</div>
 </body>
 </html>
