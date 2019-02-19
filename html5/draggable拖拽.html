@@ -25,7 +25,7 @@
         let demo = document.getElementById("demo");
         // 拖拽事件
         demo.ondragstart = (e)=>{ //开始
-            e.dataTransfer.setData("str" , "传递信息"); //设置传递的值
+            e.dataTransfer.setData( "str" , "传递信息"); //设置传递的值
             console.log(e)
         }
         // demo.ondrag = (e)=>{//中
