@@ -1,65 +1,86 @@
 <template>
   <div class="Tabbar">
     <ul class="ulList"
-        :style="{ height: boxHeight }"> 
-        <router-link    v-for="(item,index) in tabbarArr"
-                        :key="index + '-li'"
-                        :to="item.path"
-                        tag="li">
-            <div :class='{ active: item.select }'>
+        :style="{ height: boxHeight }">
+        <li @click="cgTabbar(index)"
+            class="item" 
+            v-for="( tabbarItem, index) in tabbarArr" 
+            :key="index">
+            <div :style="{color: tabbarItem.select ? activeColor : ''}">
                 <span>
-                    <i class="iconfont" :class="item.icon"></i>
+                    <i  class="iconfont" 
+                        :class="[tabbarItem.icon]"
+                        :style="{'font-size': iconSize}"></i>
+                </span> 
+                <span :style="{ fontSize }">
+                    {{tabbarItem.name}}
                 </span>
-                <span>
-                    {{item.name}}
-                </span>
-            </div>                 
-        </router-link>
+            </div>
+        </li>
     </ul>
     <div :style="{ height: boxHeight, width: '100vw' }"></div>
   </div>
 </template>
 
 <script>
-    export default {
-        name: 'Tabbar',
-        props: {
-            tabbarArr:{
-                type: Array,
-                required: true,
-            },
-            boxHeight: {    //整体高度
-                type: String,
-                default: '50px'
-            },
+import Vue from 'vue'
+export default {
+    name: 'Tabbar',
+    props: {
+        tabbarArr:{
+            type:Array,
+            required: true,
         },
-        data () {
-            return {
-                selected: null,
-            }
+        boxHeight: {        // 整体高度
+            type: String,
+            default: '50px'
         },
-        computed:{
-
+        activeColor: {      // 被选中颜色
+            type: String,
+            default: 'red'
         },
-        methods:{
-
+        iconSize: {         // icon大小
+            type: String,
+            default: '20px'
         },
-        created() {
-
+        fontSize: {         //字体大小
+            type: String,
+            default: '14px'
+        }
+    },
+    data () {
+        return {
+            msg: 'Welcome to Your Vue.js App',
+        }
+    },
+    methods:{
+        cgTabbar(index){
+            this.$router.push( this.tabbarArr[index].path )
         },
-        watch:{
-            tabbarArr:{
-                handler( newVal, oldVal) {
-                    for(let key in newVal){
-                        if( newVal[key].select ){
-                            return this.pageCg(key)
-                        }
-                    }
-                },
-                deep: true,
+    },
+    created() {
+        for(let key in this.tabbarArr){
+            Vue.set(this.tabbarArr[key], 'select' , false)
+            if(this.$route.path === this.tabbarArr[key].path){
+                Vue.set(this.tabbarArr[key], 'select' , true)
             }
         }
+    },
+    watch:{
+        $route:{
+            handler(val,oldVal){
+                for(let key in this.tabbarArr){
+                    Vue.set(this.tabbarArr[key], 'select' , false)
+                    if(val.path === this.tabbarArr[key].path){
+                        Vue.set(this.tabbarArr[key], 'select' , true)
+                    }
+                }
+            },
+            // 深度观察监听
+            deep: true
+        }
     }
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -90,7 +111,8 @@
                 &:nth-of-type(1){
                     i{
                         &::before{
-                            font-size: 20px;
+                            // font-weight: bold;
+                            // font-size: 20px;
                         }
                     }
                 }

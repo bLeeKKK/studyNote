@@ -1,12 +1,12 @@
 <template>
   <div>
-    lb
+    about
   </div>
 </template>
 
 <script>
 export default {
-  name: 'lb',
+  name: 'about',
   data () {
     return {
 
@@ -18,6 +18,8 @@ export default {
 </script>
 
 <style lang='less' scoped>
-
+@import '../assets/css/configCss.less';
+.about{
+  
+}
 </style>
-

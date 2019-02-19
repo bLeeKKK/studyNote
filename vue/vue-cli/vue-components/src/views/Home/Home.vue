@@ -1,7 +1,12 @@
 <template>
   <div class="home">
     <router-view></router-view>
-    <Tabbar :tabbarArr="tabbarArr"/>
+    <!-- <TabbarRouterLink :tabbarArr="tabbarArr" activeColor="red"/> -->
+    <Tabbar-lb :tabbarArr="tabbarArr" 
+                activeColor="green"
+                iconSize="20px"
+                fontSize="14px"
+                boxHeight="50px"/>
   </div>
 </template>
 
@@ -17,25 +22,21 @@ export default {
           icon: 'icon-guanli1',
           path: '/homePage/page1',
           name: '首页',
-          select: true,
         },
         {
           icon: 'icon-xiaoxi',
           path: '/homePage/page2',
           name: '消息',
-          select: false,
         },
         {
           icon: 'icon-icon-yxj-empty-discover',
           path: '/homePage/page3',
           name: '发现',
-          select: false,
         },
         {
           icon: 'icon-wode',
           path: '/homePage/page4',
           name: '我的',
-          select: false,
         },
       ],
     }
