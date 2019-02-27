@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>history</title>
+</head>
+<body>
+    <script>
+        // 页面的历史记录
+        // state: 一个与指定网址相关的状态对象，popstate事件触发是，该对象会传入回调函数中。如果不需要这个对象，此处可以填null
+        // title：新页面的标题，但是所有浏览器都忽略这个值，因此这里可以填 null
+        // url：新的网址，必须与当前页面处在同一个域。浏览器的地址将显示这个网址。
+        // history.pushState(state,title,url)
+        // 这个方法不会触发页面的跳转，会向历史记录中推入一条数据，主要是用来做单页面开发的
+
+        // 传地址 可以传整个
+        history.pushState({},null,'/url');
+        // 传哈希值
+        history.pushState({},null,'#url');
+        // 监听历史记录的变化
+        window.addEventListener('popstate',function(e){
+            // 监听地址的变化
+            // 上方的 state 值在事件对象中可以找到
+            console.log(e);
+        },false)
+        window.addEventListener('hashchange',function(e){
+            // 监听哈希的变化
+            // 上方的 state 值在事件对象中可以找到
+            console.log(e);
+        },false)
+    </script>
+</body>
+</html>

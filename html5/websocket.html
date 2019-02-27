@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>websocket</title>
+</head>
+<body>
+    <script>
+        // 无同源策略限制
+        // 创建 websocket
+        // 测试：官网测试地址 ws://echo.websocket.org/
+        var socket = new WebSocket('ws://echo.websocket.org/');
+        socket.onopen = function () { // 建立 socket 连接时触发这个事件。
+            socket.send('hello') // 发送数据
+            console.log(socket.readyState) // 查看状态码
+            console.log("open")
+        }
+        socket.onmessage = function(e){ // 从服务端接收数据时触发这个事件。
+            console.log(e,'message')
+            socket.close(); // 关闭socket
+        }
+        socket.onerror = function(e){ // 连接发生错误是触发。
+            console.log(e,'error')
+        }
+        socket.onclose = function(e){ // 连接被关闭时触发。
+            console.log(e,'close')
+        }
+
+        // socket.readyState 状态码含义:
+        // 0 --- 表示连接未建立。
+        // 1 --- 表示连接已建立，可以进行通信。
+        // 2 --- 表示连接正在进行关闭。
+        // 3 --- 表示连接已经关闭或者连接不能打开。
+
+        // socket.
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>动画优化</title>
+    <style>
+        .div1{
+            width: 100px;
+            height: 100px;
+            background-color: brown;
+        }
+    </style>
+</head>
+<body>
+    <div class="div1"></div>
+
+    <script>
+        // 页面一般的重绘时间为 16ms
+        // 和 setTimeout 功能类似，只是不用再传时间了
+        // requestAnimationFrame(function); 创建回调
+        // cancelAnmiationFrame(id);        清除监听
+        // 页面每次重绘 requestAnimationFrame
+    </script>
+</body>
+</html>

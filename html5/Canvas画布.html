@@ -14,7 +14,7 @@
     </style>
 </head>
 <body>
-    <canvas width="300" id="cans" height="300"></canvas>
+    <canvas width="500" id="cans" height="500"></canvas>
 
     <script>
         // 获取canvas元素
@@ -105,6 +105,84 @@
         ctx.arcTo( 100, 200, 200, 200, 10);
         ctx.arcTo( 200, 200, 200, 100, 20);
         ctx.stroke();
+        ctx.clearRect(0,0,300,300);
+
+
+        // 贝塞尔曲线
+        // 二次
+        ctx.beginPath();
+        ctx.moveTo( 100, 100);
+        ctx.quadraticCurveTo(200,300,400,200);
+        ctx.stroke();
+        ctx.clearRect(0,0,500,500);
+
+        // 三次
+        ctx.beginPath();
+        ctx.moveTo( 100, 100);
+        ctx.bezierCurveTo(200,300,400,200,450,250);
+        ctx.stroke();
+        ctx.clearRect(0,0,500,500);
+
+        // 动作
+        // ctx.save() 保存现有的画板信息 ( 是存储在栈中的，注意取出时的顺序 )
+        ctx.save();
+        ctx.save();
+        ctx.save();
+        ctx.save();
+        ctx.save();
+        // translate(x,y) 平移
+        ctx.translate(100,100)
+        ctx.fillRect(0,0,100,100);
+        ctx.translate(-50,-50);
+        // ctx.restore() 释放过去存储的画板信息
+        ctx.restore()
+        ctx.fillStyle="red";
+        // scale(x倍，y倍) 缩放当前绘图
+        ctx.scale(1,1);
+        // rotate( Math.PI的倍数 ) 旋转
+        ctx.rotate(Math.PI/4)
+        ctx.fillRect(0,0,50,50);
+        ctx.restore()
+        ctx.clearRect(0,0,500,500);
+        
+        // setTransform( 水平缩放, 水平倾斜, 垂直缩放, 水平移动, 垂直移动) 先重置再变化
+        ctx.restore();
+        ctx.clearRect(0,0,500,500);
+        ctx.translate(100,100) //无效了
+        ctx.setTransform(1,1,1,0.5,0,0);
+        ctx.fillRect(0,0,50,50);
+        // transform( 水平缩放, 水平倾斜, 垂直倾斜, 垂直缩放, 水平移动, 垂直移动) 直接变化
+        ctx.restore();
+        ctx.clearRect(0,0,500,500);
+        ctx.translate(100,100) //有效
+        ctx.transform(1,1,1,0.5,0,0);
+        ctx.fillRect(0,0,50,50);
+
+
+        // 填充图案
+        ctx.restore();
+        ctx.clearRect(0,0,500,500);
+        // ctx.setTransform(1,0,0,1,0,0);
+        // let img = new Image();
+        // img.src = './imgs/img.png';
+        // img.onload = ()=>{
+        //     let bg = ctx.createPattern(img, 'no-repeat');
+        //     ctx.fillStyle = bg;
+        //     ctx.fillRect(0,0,500,500);
+        //     ctx.clearRect(0,0,500,500);
+        // }
+
+        // 渐变色
+        // 线性渐变
+        // let bg = ctx.createLinearGradient(0,0,500,500); //选定渐变区域
+        // 径向渐变
+        let bg = ctx.createRadialGradient(100,100,100,100,100,500); //选定渐变区域
+        bg.addColorStop(0,'red');
+        bg.addColorStop(0.5,'yellow');
+        bg.addColorStop(1,'green');
+        ctx.fillStyle = bg;
+        ctx.fillRect(0,0,500,500)
+        
     </script>
 </body>
 </html>

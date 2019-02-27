@@ -79,14 +79,27 @@
         .div5{
             height: 100px;
             width: 100px;
-            background-color: #fff;
             box-shadow: 0 1px 2px rgb(250, 250, 250);
+            background-color: #fff; 
             transition: all 1s cubic-bezier(1, 0, 0, 2);
         }
         .div5:hover{
+            height: 500px;
+            width: 500px;
+            box-shadow: 0 10px 20px rgb(250, 250, 250);
+        }
+
+        .div6{
             height: 200px;
             width: 200px;
-            box-shadow: 0 10px 20px rgb(250, 250, 250)
+            border-radius: 50%;
+            box-shadow: 0 0 50px #fff,
+                        -10px -10px 80px rgb(168, 50, 50),
+                        10px 10px 80px rgb(50, 78, 168),
+                        inset 0 0 50px #fff,
+                        inset -10px -10px 80px rgb(168, 50, 50),
+                        inset 10px 10px 80px rgb(50, 78, 168);
+            margin-top: 50px;
         }
     </style>
 </head>
@@ -101,5 +114,7 @@
     <div class="div4"></div>
 
     <div class="div5"></div>
+
+    <div class="div6"></div>
 </body>
 </html>

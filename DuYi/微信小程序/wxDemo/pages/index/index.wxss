@@ -1,0 +1,14 @@
+/* pages/index/index.wxss */
+view{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 100vh;
+    background-color: #00b36a;
+    color: #fff;
+}
+text{
+    color: #fff;
+    font-size: 32rpx;
+}

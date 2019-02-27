@@ -1,0 +1,14 @@
+<!-- pages/index/index.wxml -->
+
+<!-- view组件 -->
+<!-- hover-class 指定按下去的样式类。当 hover-class="none" 时，没有点击太效果 -->
+<!-- 等。。。 -->
+<view>
+    <!-- text组件 -->
+    <!-- decode 是否解码 -->
+    <!-- space 显示连续空格 -->
+    <!-- selecttable 文本是否可选 -->
+    <text>图片</text>
+    <text decode="true">名字</text>
+    <text>欢迎</text>
+</view>

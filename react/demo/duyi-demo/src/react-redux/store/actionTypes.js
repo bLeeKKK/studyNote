@@ -1,0 +1,4 @@
+export const CHANGE_INPUT_VAL = 'CHANGE_INPUT_VAL';
+export const CHANGE_ADD_LIST = 'CHANGE_ADD_LIST';
+export const CHANGE_DEL_LIST = 'CHANGE_DEL_LIST';
+export const COUNT_ADD = 'COUNT_ADD';

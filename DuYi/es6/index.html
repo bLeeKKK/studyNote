@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>es6</title>
+</head>
+<body>
+    <script>
+        let arr = [1,2,3];
+        let set = new Set([1,2,3]);
+        console.log(    
+                        Symbol.iterator === Symbol.iterator,
+                        Symbol.iterator,
+                        Symbol('Symbol.iterator'),
+                        Symbol.iterator === Symbol('Symbol.iterator')
+                    )
+        console.log(arr[Symbol.iterator](),set[Symbol.iterator])
+    </script>
+</body>
+</html>
