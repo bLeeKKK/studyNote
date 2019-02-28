@@ -71,42 +71,11 @@
 
 
 
-<<<<<<< HEAD
-        // 冻结对象（或数组）不能进行修改
-        let obj = {a: '1',b: '2',c: '3'};
-        Object.defineProperty(obj,"d",{
-            configurable: true,
-            enumerable: false,
-            value: 1,
-            writable: true,
-        }) 
-        // 获取可以枚举和不能枚举的变量名
-        console.log(Object.getOwnPropertyNames(obj))
-        // 获取可以枚举的变量名
-        console.log(Object.keys(obj))
-        Object.freeze(obj);
-        obj.a = 0;
-        console.log(obj)
-        // 判断是否被冻结
-        console.log(Object.isFrozen(obj))
-
-
-
-        console.log(Object.getOwnPropertyDescriptor(obj,'a'),Object.getOwnPropertyDescriptors(obj));
-        Object.getOwnPropertyDescriptors(obj);
-        Object.defineProperty();
-        Object.getPrototypeOf();
-
-
-
-        // Object.hasOwnProperty( str ); // str属性字符串，判断该属性是否为该对象自己的属性
-=======
         // console.log(Object.getOwnPropertyDescriptor(obj,'a'),Object.getOwnPropertyDescriptors(obj));
         // Object.getOwnPropertyDescriptors(obj);
         // Object.defineProperty();
         // Object.getPrototypeOf();
 
->>>>>>> 30f52fe4d7e07b142fdde64650116c48f1e80e4e
     </script>
 </body>
 </html>
