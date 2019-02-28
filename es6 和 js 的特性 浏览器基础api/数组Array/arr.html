@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>arr数组</title>
+</head>
+<body>
+    <script>
+        let arr = ['a','b','c','d','e']
+
+        // shift和unshift的用法
+        // console.log(arr.shift()) //返回截取的第一个值
+        // console.log(arr)
+        // console.log(arr.unshift('a'))    // 返回length
+        // console.log(arr)
+
+        // pop和push的用法
+        // console.log(arr.pop())           //返回截取的第一个值
+        // console.log(arr)
+        // console.log(arr.push('e'))       // 返回length
+        // console.log(arr)
+
+        // 可以使用迭代器和对象上的 function
+        // console.log( Symbol.iterator )
+        // console.log( arr, arr.hasOwnProperty(3))
+        
+        // splice 的用法 // 切片
+        // console.log( arr.splice(2,2), arr);
+
+        // slice 的用法  slice( [开始位置] , [结束位置] ); 
+        // 拷贝一个新的数组
+        // console.log( arr.slice(2,5), arr);
+
+        // Array.from()的实例方法 from 将类数组转化为数组
+        // console.log(Array.from({ 0:"a", 1:'b',3:'c', length:4 }))
+
+        // 模拟生成数组
+        // let objArr = { 0:"a", 1:'b', 2:'c', length:3 }
+        // Object.setPrototypeOf( objArr , Array.prototype);
+        // console.log( objArr );
+        
+        // Array.isArray( [一个类数组] )的实例方法 isArray 将类数组转化为数组
+        // 传入第二个参数 function
+        // console.log(Array.from([1, 2, 3], x => x + x));
+        //  // expected output: Array [2, 4, 6]
+        // console.log(objArr,Array.isArray(Array.from(objArr)))
+
+        // Array.of() 的用法, 生成数组 比 Array() 定义函数较为完善
+        // console.log(Array.of(1,2,3,4,5));
+
+        // Array.concat() 的用法, 连接数组
+        // Array.prototype.concat()
+        // console.log(['origin'].concat([1],2,[3]))
+
+        console.log( arr )
+        console.log( arr.copyWithin( 0, 2, 5) )
+    </script>
+</body>
+</html>
