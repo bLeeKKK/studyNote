@@ -74,6 +74,10 @@
         // console.log( Object.getOwnPropertyNames({a:1,b:9999}) )
         // // 和 getOwnPropertyNames 差不多，您可以将给定对象的所有符号属性作为 Symbol 数组获取
         // console.log( Object.getOwnPropertySymbols({ [Symbol('a')]: 1, b: 9999}) )
+
+        // hasOwnProperty 判断某个属性是否为对象自身上的属性
+        // let obj = {a:1,b:2};
+        // console.log(obj.hasOwnProperty('b'))
         
         // 获取原型
         // console.log( Object.getPrototypeOf({}), Object.getPrototypeOf(Object.getPrototypeOf({})) );
