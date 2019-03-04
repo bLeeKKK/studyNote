@@ -15,10 +15,10 @@
         // Array.from()的实例方法 from 将类数组转化为数组
         // console.log(Array.from({ 0:"a", 1:'b',3:'c', length:4 }))
 
-        // 模拟生成数组
-        // let objArr = { 0:"a", 1:'b', 2:'c', length:3 }
-        // Object.setPrototypeOf( objArr , Array.prototype);
-        // console.log( objArr );
+        // 模拟生成数组 ；判断是否是数组 isArray。
+        let objArr = { 0:"a", 1:'b', 2:'c', length:3 }
+        Object.setPrototypeOf( objArr , Array.prototype);
+        console.log( objArr, Array.isArray( objArr ) );
         
         // Array.isArray( [一个类数组] )的实例方法 isArray 将类数组转化为数组
         // 传入第二个参数 function
@@ -27,7 +27,7 @@
         // console.log(objArr,Array.isArray(Array.from(objArr)))
 
         // Array.of() 的用法, 生成数组 比 Array() 定义函数较为完善
-        // console.log(Array.of(1,2,3,4,5));
+        // console.log( Array.of(1,2,3,4,5) );
 
 
 
