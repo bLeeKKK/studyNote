@@ -16,9 +16,9 @@
         // console.log(Array.from({ 0:"a", 1:'b',3:'c', length:4 }))
 
         // 模拟生成数组 ；判断是否是数组 isArray。
-        let objArr = { 0:"a", 1:'b', 2:'c', length:3 }
-        Object.setPrototypeOf( objArr , Array.prototype);
-        console.log( objArr, Array.isArray( objArr ) );
+        // let objArr = { 0:"a", 1:'b', 2:'c', length:3 }
+        // Object.setPrototypeOf( objArr , Array.prototype);
+        // console.log( objArr, Array.isArray( objArr ) );
         
         // Array.isArray( [一个类数组] )的实例方法 isArray 将类数组转化为数组
         // 传入第二个参数 function
@@ -57,12 +57,72 @@
         // console.log( arr.slice(2,5), arr);
 
         
-        // Array.concat() 的用法, 连接数组
+        // Array.concat() 的用法, 连接数组 创建新数组
         // Array.prototype.concat()
-        console.log(['origin'].concat([1],2,[3,4]))
+        // console.log(['origin'].concat([1],2,[3,4]))
 
-        console.log( arr )
-        console.log( arr.copyWithin( 0, 2, 5) )
+        // copyWithin （略）
+        // console.log( arr )
+        // console.log( arr.copyWithin( 0, 2, 5) )
+
+        // entries() 方法返回一个新的Array Iterator对象，该对象包含数组中每个索引的键/值对。
+        // 返回迭代器对象
+        // let ite = arr.entries()
+        // console.log( ite.next() )
+        // console.log( ite.next() )
+        // console.log( ite.next() )
+        // console.log( ite.next() )
+        // console.log( ite.next() )
+
+        // every 每一项全部返回 true;
+        // console.log( arr.every((ele,index,arr)=>{
+        //     return ele > '0'
+        // }))
+
+        // 填充 fill
+        // console.log(arr.fill('in'))
+
+        // filter 过滤 创建新数组
+        // console.log(arr.filter(( ele, index, arr)=>{
+        //     return ele >= 'c'
+        // }))
+
+        // find
+        // console.log(arr.find(( ele, index, arr)=>{
+        //     console.log(999)
+        //     return ele === 'c'
+        // }))
+        
+        // findIndex 过滤 返回合适的index
+        // console.log(arr.findIndex(( ele, index, arr)=>{
+        //     console.log(999)
+        //     return ele === 'c'
+        // }))
+
+        // arr.forEach 遍历
+
+        // arr.includes 是否包含某个元素
+        // console.log(arr.includes('5'))
+
+        // arr.reduce 叠加
+        // console.log(arr.reduce((currVal,nowVal,nowIndex,arr)=>{
+        //     return currVal + nowVal
+        // },'拼接：'))
+
+        // 反转原 数组
+        // arr.reverse()
+        // console.log(arr)
+
+        // 排序 sort 三种返回值：0 小于0 大于0
+        // arr.reverse()
+        arr.sort((ele1,ele2)=>{
+            return -1
+        }) 
+        console.log(arr)
+
+        // 会创建新数组 方法
+            // cancat ， filter ， map ， slice
+
     </script>
 </body>
 </html>
