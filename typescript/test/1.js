@@ -43,16 +43,24 @@
 // var p:Point;
 // p = {x:1,y:2,z:99};
 // typescript中的Class类
-var Person = /** @class */ (function () {
-    function Person(name, age) {
-        this.name = name;
-        this.age = age;
-    }
-    Person.prototype.showMe = function () {
-        var _a = this, name = _a.name, age = _a.age;
-        console.log(name, age);
-    };
-    return Person;
-}());
-var p = new Person('lee', 18);
-p.showMe();
+// class Person{
+//     name: string;
+//     age: number;
+//     constructor(name: string,age:number){
+//         this.name = name;
+//         this.age = age;
+//     }
+//     showMe(){
+//         let {name,age}  = this;
+//         console.log(name,age)
+//     }
+// }
+// let p = new Person('lee',18);
+// p.showMe();
+// interface ArrList {
+//     string,
+//     number
+// }
+var arr1 = [1, 2, '3'];
+var arr2 = [1, 2];
+var arr3 = [1, 2];

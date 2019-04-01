@@ -67,3 +67,12 @@
 // }
 // let p = new Person('lee',18);
 // p.showMe();
+
+// interface ArrList {
+//     string,
+//     number
+// }
+
+let arr1 = [1,2,'3'];
+let arr2:number[] = [1,2];
+let arr3:Array<number> = [1,2];
