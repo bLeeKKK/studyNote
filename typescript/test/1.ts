@@ -67,7 +67,6 @@
 // }
 // let p = new Person('lee',18);
 // p.showMe();
-
 enum ColorS { red, gree=2, blue}
 
 let c:ColorS = ColorS.red;
@@ -110,3 +109,4 @@ console.log(c,ColorS)
 // const gradient = parseStringToGradient<ILinearGradient>('AAFSDDFAF')
 
 // const radient = parseStringToGradient<IRadialGradient>('');
+

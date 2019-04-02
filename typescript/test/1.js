@@ -57,6 +57,7 @@
 // }
 // let p = new Person('lee',18);
 // p.showMe();
+<<<<<<< HEAD
 var ColorS;
 (function (ColorS) {
     ColorS[ColorS["red"] = 0] = "red";
@@ -65,3 +66,12 @@ var ColorS;
 })(ColorS || (ColorS = {}));
 var c = ColorS.red;
 console.log(c, ColorS);
+=======
+// interface ArrList {
+//     string,
+//     number
+// }
+var arr1 = [1, 2, '3'];
+var arr2 = [1, 2];
+var arr3 = [1, 2];
+>>>>>>> 8b329d59e3ebd2aaf07b93ecae3a7dd398ae7942
