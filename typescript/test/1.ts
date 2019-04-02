@@ -67,3 +67,46 @@
 // }
 // let p = new Person('lee',18);
 // p.showMe();
+
+enum ColorS { red, gree=2, blue}
+
+let c:ColorS = ColorS.red;
+
+console.log(c,ColorS)
+
+
+// interface IColorStopsItem {
+//     color: string,
+//     point: string|number,
+// }
+
+// type ColorStops = Array<IColorStopsItem>;
+
+// interface ILinearGradient {
+//     from?: string,
+//     angle?:number,
+//     colorStops: ColorStops
+// }
+
+// interface IRadialGradient {
+//     position: string,
+//     size?:string,
+//     colorStops:[{
+//         color: string,
+//         point: number|string
+//     }]
+// }
+
+// const parse =function <T>():T {
+
+// }
+
+// const parseStringToGradient = <T>(str: string): T => {
+
+//     return {}
+// }
+
+
+// const gradient = parseStringToGradient<ILinearGradient>('AAFSDDFAF')
+
+// const radient = parseStringToGradient<IRadialGradient>('');
