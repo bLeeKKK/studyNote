@@ -3,20 +3,20 @@
 // 先安装 redux 
 // 命令: npm install react-redux --save
 
-import React from 'react';
-import { render } from 'react-dom';
-import TodoList from './react-redux/TodoList';
-import Counter from './react-redux/Counter';
+// import React from 'react';
+// import { render } from 'react-dom';
+// import TodoList from './react-redux/TodoList';
+// import Counter from './react-redux/Counter';
 
-// 使用 react-redux
-import { Provider } from 'react-redux';
-import store from './react-redux/store';
-// 使用 Provider 组件包裹，再引用 connect 方法 例：Counter 中
+// // 使用 react-redux
+// import { Provider } from 'react-redux';
+// import store from './react-redux/store';
+// // 使用 Provider 组件包裹，再引用 connect 方法 例：Counter 中
 
-render( <Provider store={ store }>
-            {/* <TodoList />  */}
-            <Counter />
-        </Provider>,window.root)
+// render( <Provider store={ store }>
+//             {/* <TodoList />  */}
+//             <Counter />
+//         </Provider>,window.root)
 
 
 // //=================================================================================================
@@ -640,18 +640,18 @@ render( <Provider store={ store }>
 
 //=================================================================================================
 // class_1(react 的基础知识)
-// // 注意：引入的 React 一定要叫 React
-// import React from 'react';
-// // import { render } from 'react-dom';
+// 注意：引入的 React 一定要叫 React
+import React from 'react';
 // import { render } from 'react-dom';
+import { render } from 'react-dom';
 
-// // PWA (开发移动app时，将网页存储在浏览器)
-// // import * as serviceWorker from './serviceWorker';
+// PWA (开发移动app时，将网页存储在浏览器)
+// import * as serviceWorker from './serviceWorker';
 
-// // 在js中使用 jsx 语法 必须借助 React;
-// // jsx 的语法会被 babel 转化为 React.createElement(type,props,children....) 这样的函数,这个函数返回一个 vNode
-// //（注：所以引入的React名字必须为React）；
-// let h1 = <h1>Hello World</h1>;
+// 在js中使用 jsx 语法 必须借助 React;
+// jsx 的语法会被 babel 转化为 React.createElement(type,props,children....) 这样的函数,这个函数返回一个 vNode
+//（注：所以引入的React名字必须为React）；
+let h1 = <h1>Hello World</h1>;
 
-// // render( 虚拟dom, 插入的dom)
-// render( h1 , document.getElementById('root'));
+// render( 虚拟dom, 插入的dom)
+render( h1 , document.getElementById('root'));
