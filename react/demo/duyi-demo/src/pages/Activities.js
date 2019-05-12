@@ -1,7 +1,7 @@
 import React from 'react';
 
 // 二级路由
-import SeconedNav from './SeconedNav/SeconedNav'
+import   from './SeconedNav/SeconedNav'
 import { NavLink,Switch,Route,Redirect,Prompt } from 'react-router-dom';
 import Recommended from './SeconedNav/Recommended'
 import All from './SeconedNav/All';

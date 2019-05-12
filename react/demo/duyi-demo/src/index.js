@@ -3,20 +3,20 @@
 // 先安装 redux 
 // 命令: npm install react-redux --save
 
-import React from 'react';
-import { render } from 'react-dom';
-import TodoList from './react-redux/TodoList';
-import Counter from './react-redux/Counter';
+// import React from 'react';
+// import { render } from 'react-dom';
+// import TodoList from './react-redux/TodoList';
+// import Counter from './react-redux/Counter';
 
-// 使用 react-redux
-import { Provider } from 'react-redux';
-import store from './react-redux/store';
-// 使用 Provider 组件包裹，再引用 connect 方法 例：Counter 中
+// // 使用 react-redux
+// import { Provider } from 'react-redux';
+// import store from './react-redux/store';
+// // 使用 Provider 组件包裹，再引用 connect 方法 例：Counter 中
 
-render( <Provider store={ store }>
-            {/* <TodoList />  */}
-            <Counter />
-        </Provider>,window.root)
+// render( <Provider store={ store }>
+//             {/* <TodoList />  */}
+//             <Counter />
+//         </Provider>,window.root)
 
 
 // //=================================================================================================
@@ -320,13 +320,13 @@ render( <Provider store={ store }>
 
 
 //=================================================================================================
-// //class_8 (生命周期)
-// import React from "react";
-// import { render } from "react-dom";
+//class_8 (生命周期)
+import React from "react";
+import { render } from "react-dom";
 
-// import LifeCycle from "./components/LifeCycle/LifeCycle";
+import LifeCycle from "./components/LifeCycle/LifeCycle";
 
-// render( <LifeCycle />, window.root);
+render( <LifeCycle />, window.root);
 
 
 
