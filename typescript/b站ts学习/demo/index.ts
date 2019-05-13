@@ -96,14 +96,149 @@
 // ts的接口 （行为规范）
 // 1.属性接口
 // 2.函数类型接口
-// 3.可索引几口
+// 3.可索引接口
 // 4.类类型接口
 // 5.接口扩展
 
 // 1.属性接口
 // 使用 interface 定义接口
-interface FullName {
-  firstName: string;
-  seconName: string;
-  age?: number; // 可选属性
+// interface FullName {
+//   firstName: string;
+//   seconName: string;
+//   age?: number; // 可选属性
+// }
+
+// 2.函数接口:对方法传入的参数  以及返回值进行约束 (批量约束)
+// interface encrypt {
+//   (key: string, value: string): string;
+// }
+
+// let md5: encrypt = function (key: string, value: string): string {
+//   return key + value;
+// }
+
+// 3.可索引接口 数组 对象 的索引进行约束约束（不常用）
+// interface UserArr {
+//   [index:number]:string
+// }
+// let arr:UserArr = ['2','3'];
+// console.log(arr);
+// interface UserObj {
+//   [index:string]:string
+// }
+// let obj:UserObj = {name:'lb',age:'18'};
+// console.log(arr);
+
+// 4.类类型接口：对类的约束   和   抽象类有点相似
+// interface Animal {
+//   name: string;
+//   eat(str: string): void;
+// }
+// class Dog implements Animal { // 类使用 implements 关键字使用约束（Animal）
+//   name: string = '111';
+//   eat = (): void => {
+//     // 可以不传参数也行
+//   }
+// }
+
+// 5.接口扩展： 接口可以继承接口
+// interface Animal {
+//   eat():void;
+// }
+// interface Person extends Animal {
+//   work():void;
+// }
+
+// // class Web implements Person{
+// //   public name: string = 'lee';
+// //   eat(){
+// //     console.log('eat')
+// //   }
+// //   work(){
+// //     console.log('work')
+// //   }
+// // }
+
+// // 拓展接口继承后也可以进行类的继承
+// class Programmer {
+//   public name: string;
+//   constructor(name:string) {
+//     this.name = name
+//   }
+//   coding(code:string){
+//     console.log('codeing' +　code)
+//   }
+// }
+// class Web extends Programmer implements Person { 
+//   public name: string = 'lee';
+//   eat(){
+//     console.log('eat')
+//   }
+//   work(){
+//     console.log('work')
+//   }
+// }
+
+
+
+
+
+
+// 泛型（类型不定时可以使用泛型）
+// 泛型定义，泛型函数
+function getData<T>(value: T): T {
+  return value;
 }
+getData<string>('字符串');
+getData<number>(1);
+
+//  泛型类 
+// 需要同时支持返回数字或者字符串
+// class MinClass { // 这个只能返回 number 类型
+//   public list:number[] = [];
+//   add(num:number){
+//     this.list.push(num);
+//   }
+//   min():number{
+//     let min:number = this.list[0];
+//     return min
+//   }
+// }
+class MinClass<T> { // 可返回任意 类型
+  public list: T[] = [];
+  add(num: T) {
+    this.list.push(num);
+  }
+  min(): T {
+    let min: T = this.list[0];
+    return min
+  }
+}
+
+// 泛型接口
+// 原版接口
+// interface ConfigFn {
+//   (value: string, value1: string): string
+// }
+// let setData: ConfigFn = function (val1: string, val2: string): string {
+//   return val1 + val2
+// }
+// 泛型接口
+// // 泛型(写法1)
+// interface ConfigFn {
+//   <T>(value: T, value1: T): T
+// }
+// let setData: ConfigFn = function<T> (val1: T, val2: T): T {
+//   return val1
+// }
+// setData<string>('1','2')
+// 泛型(写法2)
+// interface ConfigFn<T> {
+//   (value: T, value1: T): T
+// }
+// function setData<T> (val1: T, val2: T): T {
+//   return val1
+// }
+// let myGetData:ConfigFn<string> = setData;
+
+// setData<string>('1','2')
