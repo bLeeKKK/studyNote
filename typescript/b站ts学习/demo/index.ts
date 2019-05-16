@@ -184,36 +184,36 @@
 
 
 
-// 泛型（类型不定时可以使用泛型）
-// 泛型定义，泛型函数
-function getData<T>(value: T): T {
-  return value;
-}
-getData<string>('字符串');
-getData<number>(1);
+// // 泛型（类型不定时可以使用泛型）
+// // 泛型定义，泛型函数
+// function getData<T>(value: T): T {
+//   return value;
+// }
+// getData<string>('字符串');
+// getData<number>(1);
 
-//  泛型类 
-// 需要同时支持返回数字或者字符串
-// class MinClass { // 这个只能返回 number 类型
-//   public list:number[] = [];
-//   add(num:number){
+// //  泛型类 
+// // 需要同时支持返回数字或者字符串
+// // class MinClass { // 这个只能返回 number 类型
+// //   public list:number[] = [];
+// //   add(num:number){
+// //     this.list.push(num);
+// //   }
+// //   min():number{
+// //     let min:number = this.list[0];
+// //     return min
+// //   }
+// // }
+// class MinClass<T> { // 可返回任意 类型
+//   public list: T[] = [];
+//   add(num: T) {
 //     this.list.push(num);
 //   }
-//   min():number{
-//     let min:number = this.list[0];
+//   min(): T {
+//     let min: T = this.list[0];
 //     return min
 //   }
 // }
-class MinClass<T> { // 可返回任意 类型
-  public list: T[] = [];
-  add(num: T) {
-    this.list.push(num);
-  }
-  min(): T {
-    let min: T = this.list[0];
-    return min
-  }
-}
 
 // 泛型接口
 // 原版接口
@@ -242,3 +242,73 @@ class MinClass<T> { // 可返回任意 类型
 // let myGetData:ConfigFn<string> = setData;
 
 // setData<string>('1','2')
+
+
+
+
+
+// 把类作为约束数据传入的类型
+// // 例子1
+// class User {
+//   username: string | undefined;
+//   password: string | undefined;
+// }
+
+// class MysqlDb {
+//   add(user: User): boolean {
+//     return true
+//   }
+// }
+
+// let u = new User();
+// u.username = "张三";
+// u.password = "123456";
+// var Db=new MysqlDb();
+// Db.add(u);
+
+
+// // 例子2
+// class ArticleCate {
+//   title: string | undefined;
+//   desc: string | undefined;
+//   status: string | undefined;
+// }
+// class MysqlDb {
+//   add(info: ArticleCate): boolean {
+//     console.log(info)
+//     return true
+//   }
+// }
+// let a = new ArticleCate();
+// a.title = "国内";
+// a.desc = "新闻";
+// a.status = "国内";
+// var Db = new MysqlDb();
+// Db.add(a);
+
+
+// 可以使用泛型 MysqlDb 重复的封装
+class MysqlDb<T>{
+  add(info: T): boolean {
+    console.log(info)
+    return true
+  }
+}
+class ArticleCate {
+  title: string | undefined;
+  desc: string | undefined;
+  status: string | undefined;
+  constructor(params: {
+    title: string | undefined,
+    desc: string | undefined,
+    status: string | undefined;
+  }) {
+    this.title = params.title;
+    this.desc = params.desc;
+    this.status = params.status
+  }
+}
+let a = new ArticleCate({ title: "国内", desc: "新闻", status: "国内" });
+
+let Db = new MysqlDb<ArticleCate>();
+Db.add(a)
