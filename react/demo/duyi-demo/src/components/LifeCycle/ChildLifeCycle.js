@@ -3,7 +3,7 @@ import React from "react";
 class ChildLifeCycle extends React.Component {
     render(){
         // 组件渲染
-        console.log('2.render 组件渲染');
+        console.log('2.render 组件渲染',this);
         return (<>来自父：{ this.props.n }</>)
     }
 

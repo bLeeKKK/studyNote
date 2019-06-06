@@ -35,7 +35,7 @@ class LifeCycle extends React.Component {
 
     render(){
         // 组件渲染
-        console.log('1.render 组件渲染');
+        console.log('1.render 组件渲染',this);
         return (<>
                     <h1>
                         LifeCycle:

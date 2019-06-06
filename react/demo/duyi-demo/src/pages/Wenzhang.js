@@ -2,16 +2,17 @@ import React from 'react';
 
 class Wenzhang extends React.Component {
     render () {
-        const { arouth,title,id } = this.props.location.state;
+        console.log(this.props.location,'location')
+        // const { arouth,title,id } = this.props.location.state;
         return (<div>
                     <div>
-                        { arouth }
+                        {/* { arouth } */}
                     </div>  
                     <div>
-                        { title }
+                        {/* { title } */}
                     </div>  
                     <div>
-                        { id }
+                        {/* { id } */}
                     </div>  
                 </div>)
     }

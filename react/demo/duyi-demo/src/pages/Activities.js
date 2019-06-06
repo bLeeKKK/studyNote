@@ -1,7 +1,7 @@
 import React from 'react';
 
 // 二级路由
-import   from './SeconedNav/SeconedNav'
+import SeconedNav  from './SeconedNav/SeconedNav'
 import { NavLink,Switch,Route,Redirect,Prompt } from 'react-router-dom';
 import Recommended from './SeconedNav/Recommended'
 import All from './SeconedNav/All';
@@ -16,6 +16,7 @@ class Activities extends React.Component {
                     {/* <Prompt message="要离开吗？"/> */}
                     <Prompt message={ (location)=>{
                         // 进入或是离开会执行这个函数
+                        console.log(location)
                         if(!location.pathname.includes('/activities')){
                             return window.confirm('确定离开？')
                         }
