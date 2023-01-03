@@ -13,7 +13,7 @@
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.4.0",
-    "@vue/cli-service": "^3.4.0",
+    "@vue/cli-service": "^5.0.8",
     "better-scroll": "^1.14.1",
     "less": "^3.0.4",
     "less-loader": "^4.1.0",
